@@ -1,0 +1,329 @@
+<?php  
+$logged		= $this->isCustomerLoggedIn();
+$has_addr	= $this->customerHasAddresses();
+
+if (!$this->getQuote()->isVirtual() && Mage::helper('onestepcheckout')->isShippingAddressAllowed()) 
+{ 
+?>
+
+<div id="ship_address_block" class="sepRow onestepcheckout_block">
+	<h4><?php echo $this->__('Delivery address'); ?></h4>
+    <div class="form_fields">
+    <?php //if ($has_addr){ ?>
+		<div class="row">
+			<div class="col-xs-6 fieldRow">
+                <?php // echo $this->getCustomerShipAddr() ?>
+			</div>
+		</div>
+    <?php //} ?>
+        <div id="ship_form"<?php if ($has_addr){ echo ' style="display:block;" ';}?>>
+			<input type="hidden" name="shipping[address_id]" id="shipping:address_id" value="<?php echo $this->getShipAddress()->getId() ?>" />
+			<div class="row">
+				<?php echo $this->getLayout()->createBlock('onestepcheckout/widget_name')->setObject($this->getShipAddress())->setFieldIdFormat('shipping:%s')->setFieldNameFormat('shipping[%s]')->setFieldParams('onchange="shipping.setSameAsBilling(false)"')->toHtml() ?>
+			</div>
+
+            <div class="col-xs-6 fieldRow">
+                <label><?php echo $this->__('Telephone') ?></label>
+                <input type="text" name="shipping[telephone]" id="shipping:telephone" value="<?php echo $this->htmlEscape($this->getShipAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="validate-length maximum-length-12 minimum-length-10 validate-digits fm_box fw t1  required-entry validate-number " maxlength="11" minlength="10" onchange="shipping.setSameAsBilling(false);" />
+            </div>
+
+            <div class="fieldRow">
+                <label><?php echo $this->__('Address') ?></label>
+                <input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet(1)) ?>" class="fm_box fw t1<?php if($ar === 'required'){echo ' required-entry';}?>" onchange="shipping.setSameAsBilling(false);" />
+            </div>
+
+<!--            Tinh/Thanh pho-->
+            <div class="col-xs-6 fieldRow">
+                <label><?php echo $this->__('State') ?></label>
+                <select id="shipping:region_id" name="shipping[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select required-entry">
+                    <option value=""><?php echo $this->__('Select One') ?></option>
+                </select>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    $j('shipping:region_id').setAttribute('defaultValue',  "<?php echo $this->getShipAddress()->getRegionId() ?>");
+                    //]]>
+                </script>
+            </div>
+
+<!--            Quan/Huyen-->
+            <div class="col-xs-6 fieldRow">
+                <label><?php echo $this->__('City') ?></label>
+                <select id="shipping:city" name="shipping[city]" title="<?php echo $this->__('City') ?>" class="validate-select required-entry" >
+                    <option value=""><?php echo $this->__('Select One') ?></option>
+                </select>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    $j('shipping:city').setAttribute('defaultValue',  "<?php echo $this->getShipAddress()->getCity() ?>");
+                    //]]>
+                </script>
+            </div>
+<!--Xa/phuong-->
+            <div class="col-xs-6 fieldRow">
+                <label><?php echo $this->__('Xaphuong') ?></label>
+                <select id="shipping:xaphuong" name="shipping[xaphuong]" title="<?php echo $this->__('Xaphuong') ?>" class="validate-select required-entry" >
+                    <option value=""><?php echo $this->__('Select One') ?></option>
+                </select>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    $j('shipping:xaphuong').setAttribute('defaultValue',  "<?php echo $this->getShipAddress()->getXaphuong() ?>");
+                    //]]>
+                </script>
+            </div>
+
+			<?php
+			$cr = Mage::getStoreConfig('onestepcheckout/address_form/company'); 
+			if ($cr !== 'hidden') : ?>
+				<div class="fieldRow">
+					<label><?php echo $this->__('Company') ?></label>
+                    <input type="text" id="shipping:company" name="shipping[company]" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="fm_box fw t1<?php if( $cr === 'required' ){ echo ' required-entry ';} ?>" onchange="shipping.setSameAsBilling(false);" />
+				</div>
+			<?php endif;
+			
+			$ar	= Mage::getStoreConfig('onestepcheckout/address_form/address');
+			if ($ar !== 'hidden') : 
+			?>
+				<div class="fieldRow">
+					<label><?php echo $this->__('Address') ?></label>
+                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet(1)) ?>" class="fm_box fw t1<?php if($ar === 'required'){echo ' required-entry';}?>" onchange="shipping.setSameAsBilling(false);" />
+				</div>
+				<?php 
+				$csl	= $this->helper('customer/address')->getStreetLines();
+				for ($i = 2; $i <= $csl; $i++){ 
+				?>
+				<div class="fieldRow">
+					<label><?php echo $this->__('Address ') ?> <?php echo $i ?></label>
+                    <input type="text" name="shipping[street][]" id="shipping:street<?php echo $i?>" title="<?php echo $this->__('Street Address %s', $i) ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getStreet($i)) ?>" class="fm_box fw t1" onchange="shipping.setSameAsBilling(false);" />
+				</div>
+				<?php 
+				} 
+
+			endif;
+			?>
+			 <?php
+	        $country_r = Mage::getStoreConfig('onestepcheckout/address_form/country');  
+	        ?>
+	        <div class="row"<?php if($country_r === 'hidden'){ echo ' style="display:none" ';}?>>
+	        	<div class="col-xs-12 fieldRow">
+	        	<label><?php echo $this->__('Country') ?></label>
+                    <?php // echo $this->getShippingCountriesSelectBox() ?>
+					
+				
+				<select onchange="if (this.value=='other') window.location.href='<?php echo $this->getUrl('checkout/onepage');?>'" name="shipping[country_id]" id="shipping:country_id" class="validate-select" title="Country">
+					<option value="IN" selected="selected">India</option>
+					<option value="other">Other</option>
+				</select>
+				
+				<!--a style="color:black;" href="<?php echo $this->getUrl('checkout/onepage');?>">Select another Country</a-->
+			
+				</div>
+			</div>
+			<?php
+			$city_r = Mage::getStoreConfig('onestepcheckout/address_form/city');
+			$state_r= Mage::getStoreConfig('onestepcheckout/address_form/state');
+			?>
+			<div class="row"<?php if(($city_r === 'hidden' && $state_r === 'hidden')){echo ' style="display:none"';}?> >
+			<?php if ($city_r !== 'hidden') : ?>
+				<div class="col-xs-6 fieldRow">
+					<label><?php echo $this->__('City ') ?></label>
+                    <input type="text" name="shipping[city]" id="shipping:city" title="<?php echo $this->__('City') ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getCity()) ?>" class="fm_box fw t1<?php if ($city_r === 'required'){ echo ' required-entry ';}?>" onchange="shipping.setSameAsBilling(false);" maxlength="20" />
+				</div>
+			<?php endif; ?>
+				<div class="col-xs-6 fieldRow"<?php if($state_r === 'hidden'){ echo ' style="display:none" ';}?>>
+					<label><?php echo $this->__('State') ?></label>
+                    <select id="shipping:region_id" name="shipping[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select<?php if($state_r === 'required') { echo ' required-entry';}?>" style="display:none;">
+                        <option value=""><?php echo $this->__('Select One') ?></option>
+                    </select>
+                    <script type="text/javascript">
+                    //<![CDATA[
+                        $('shipping:region_id').setAttribute('defaultValue',  "<?php echo $this->getShipAddress()->getRegionId() ?>");
+                    //]]>
+                    </script>
+                    <input type="text" id="shipping:region" name="shipping[region]" value="<?php echo $this->htmlEscape($this->getShipAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="validate-alpha fm_box fw t1<?php if($state_r === 'required'){ echo ' required-entry';}?>" style="display:none;" maxlength="20" placeholder="<?php echo $this->__('State / Province') ?>" />
+                </div>
+            </div>
+			<?php
+			$zip_r	= Mage::getStoreConfig('onestepcheckout/address_form/zip');
+			$phone_r= Mage::getStoreConfig('onestepcheckout/address_form/phone');
+			if ($zip_r !== 'hidden' || $phone_r !== 'hidden') : 
+			?>
+            <div class="row">
+				<?php if ($zip_r !== 'hidden') : ?>
+					<div class="col-xs-6 fieldRow">
+						<label><?php echo $this->__('Zip Code') ?></label>
+                        <input type="text" name="shipping[postcode]" id="shipping:postcode" title="<?php echo $this->__('Zip/Postal Code') ?>" value="<?php echo $this->htmlEscape($this->getShipAddress()->getPostcode()) ?>" class="fm_box ship_zip fw t1 validate-zip-international<?php if($zip_r === 'required'){echo ' required-entry ';}?>" maxlength="6" onchange="shipping.setSameAsBilling(false);" />
+                   <span class="cod_check_ship"></span>
+				   </div>
+				<?php endif; ?>
+				<?php if ($phone_r !== 'hidden') : ?>
+					<div class="col-xs-6 fieldRow">
+						<label><?php echo $this->__('Telephone') ?></label>
+                        <input type="text" name="shipping[telephone]" id="shipping:telephone" value="<?php echo $this->htmlEscape($this->getShipAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="validate-length maximum-length-12 minimum-length-10 validate-digits fm_box fw t1<?php if($phone_r === 'required') { echo ' required-entry validate-number ';}?>" maxlength="11" minlength="10" onchange="shipping.setSameAsBilling(false);" />
+                    </div>
+				<?php endif; ?>
+            </div>
+			<?php endif ?>
+
+	       
+
+			<?php
+			$fax_r	= Mage::getStoreConfig('onestepcheckout/address_form/fax');
+			if ($fax_r !== 'hidden') : 
+			?>
+			<div lang="row">
+				 <div class="col-xs-6 fieldRow">
+                    <input type="text" name="shipping[fax]" id="shipping:fax" value="<?php echo $this->htmlEscape($this->getShipAddress()->getFax()) ?>" title="<?php echo $this->__('Fax') ?>" class="fm_box fw t1<?php if($fax_r === 'required') {echo ' required-entry ';}?>" onchange="shipping.setSameAsBilling(false);" placeholder="<?php echo $this->__('Fax') ?>" />
+                </div>
+            </div>
+			<?php 
+			endif; 
+			?>
+			<?php
+			if ($logged && $has_addr){
+			?>
+				<!--div class="fieldRow checkBox">
+					<input type="checkbox" class="checkbox" name="shipping[save_in_address_book]" id="shipping:save_in_address_book" value="1" title="<?php echo $this->__('Save in address book') ?>" <?php if ($this->getShipAddress()->getSaveInAddressBook()){ echo ' checked="checked" ';}?> />
+					<label>
+						<?php echo $this->__('Save in address book') ?>
+					</label>
+				</div-->
+				<div class="no-display">
+					<input type="hidden" name="shipping[save_in_address_book]" value="1" />
+				</div>
+			<?php 
+			}
+			else
+			{
+			?>
+				<div class="no-display">
+					<input type="hidden" name="shipping[save_in_address_book]" value="1" />
+				</div>
+			<?php
+			}
+			?>
+        </div>
+	</div>
+</div>
+
+<?php
+if(strstr(Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB), "index.php/")){
+    $url = str_replace("index.php/", "", Mage::getBaseUrl());
+} else{ 
+    $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+}
+$shipcod_available = Mage::getStoreConfig('code/frontend/cod_available');
+$shipcod_unavailable = Mage::getStoreConfig('code/frontend/cod_not_available');
+?>
+<input type="hidden" id="ship_succ" value="<?php echo $shipcod_available; ?>">
+<input type="hidden" id="ship_fail" value="<?php echo $shipcod_unavailable; ?>">
+<script type="text/javascript">
+//<![CDATA[
+	var shipping = new ShippingAddress('onestepcheckout_orderform');
+	var shippingRegionUpdater = new RegionUpdater('shipping:country_id', 'shipping:region', 'shipping:region_id', countryRegions, undefined, 'shipping:postcode');
+//]]>
+//When the page is loaded and zip code or address is already filled up function will be called to check the zip code for both billing and shipping
+<?php if($this->isCustomerLoggedIn()){ ?>
+	
+function CODloginCheck(){
+	if(jQuery(".zip-box").prop("checked") == true && jQuery("#ship_address_block").css("display") == "none" && jQuery('.zip_postcode').val!=''){
+		
+	jQuery('.zip_postcode').blur();
+	}
+	else{
+		jQuery('.ship_zip').blur();
+	}
+}
+document.observe("dom:loaded", function() {
+ setTimeout(function() {
+                  CODloginCheck();
+            }, 5800);
+ });
+<?php } ?>
+//When the checkbox is unchecked or checked again below function will be called to check the zip code.
+jQuery(".zip-box").change(function(){
+	if(jQuery(".zip-box").prop("checked") == true && jQuery("#ship_address_block").css("display") == "none"){
+	
+jQuery('.zip_postcode').blur();
+	}
+
+});
+
+//After filling the shipping details when the shipping zip code input is blurred this function will be called.
+ 
+/*  jQuery('.ship_zip').click(function() {
+	 jQuery('.btn-checkout').attr("disabled", "disabled");
+}); */
+ 
+ 
+ 
+ 
+jQuery('.ship_zip').on('blur',function(){
+	var postcode = jQuery('.ship_zip').val();
+    var postid =  jQuery('.ship_zip').attr("id");
+    var succ = jQuery("#ship_succ").val();
+  	var fail = jQuery("#ship_fail").val();
+
+   
+    if(postcode == '')
+    {
+    	Validation.validate(postid);
+    	return false;
+    }
+    else
+    {
+    	jQuery('#payment-method').css("display","block");
+    	jQuery('#advice-required-entry-shipping:postcode').text('');
+    	jQuery(".ship_zip").removeClass("validation-failed");
+    }
+   
+ //var productid = jQuery('#productid').val();
+  //jQuery('.btn-checkout').attr("disabled", "disabled");
+ jQuery.ajax({
+  url: "<?php echo $url."cod.php"; ?>",
+  type: "POST",
+  //data: {postcode : postcode,submit_cod:'submit_cod',productid: productid},
+  data: {postcode : postcode},
+  dataType: "html",
+  success:function(data){
+	  
+	   if(data!=1){
+		
+  			jQuery("#p_method_msp_cashondelivery").css('display','none');
+			jQuery("#p_method_msp_cashondelivery").attr('name','none');
+			
+			jQuery("#p_method_ccavenuepay").removeAttr('checked');
+			jQuery("#p_method_msp_cashondelivery").removeAttr('checked');
+			jQuery(".msp_cashondelivery-zip").removeClass('ui-state-active');
+			jQuery(".ccavenuepay-zip").removeClass('ui-state-active');
+			
+  			jQuery(".msp_cashondelivery-zip").css('display','none');
+  			jQuery("#payment_form_msp_cashondelivery").css("display","block");
+  			jQuery("#payment_form_msp_cashondelivery li").html("Sorry, COD Service is not available at your location");
+			 //jQuery('.btn-checkout').removeAttr("disabled");
+	} else {
+		
+		
+  			jQuery("#p_method_msp_cashondelivery").css('display','block');
+			jQuery("#p_method_msp_cashondelivery").attr('name','payment[method]');
+			
+			jQuery("#p_method_ccavenuepay").removeAttr('checked');
+			jQuery("#p_method_msp_cashondelivery").removeAttr('checked');
+			jQuery(".msp_cashondelivery-zip").removeClass('ui-state-active');
+			jQuery(".ccavenuepay-zip").removeClass('ui-state-active');
+		
+		
+			jQuery('#payment_form_msp_cashondelivery').css('display','block');
+			jQuery(".msp_cashondelivery-zip").css('display','block');
+			jQuery(".msp_cashondelivery-zip").children().css("text-align","left");
+			
+  			jQuery("#payment_form_msp_cashondelivery li").html("Courier partner Cash on Delivery is available at your location and you will be charged <?php echo $cod_shipping_charge=Mage::getStoreConfig('allwork/general/cod_amount');?> Rupees.");
+  			// jQuery('.btn-checkout').removeAttr("disabled");
+	}  
+	  
+	  
+  	
+  }});
+}); 
+</script>
+<?php 
+} 
+?>

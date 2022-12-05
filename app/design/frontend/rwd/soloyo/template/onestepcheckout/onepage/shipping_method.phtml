@@ -1,0 +1,24 @@
+<?php if ($this->getQuote()->isVirtual()) : return; endif; ?>
+<style>
+
+    ul.messages {
+
+        padding: 9px 15px;
+        width: 100%;
+    }
+
+</style>
+
+
+<div id="shipping-method" class="onestepcheckout_block sepRow-old">
+    <h4><?php echo $this->__('Phương thức vận chuyển') ?></h4>
+    <div id="checkout-shipping-method-load" >
+        <?php echo $this->getChildHtml('available') ?>
+    </div>
+
+
+</div>
+
+
+
+

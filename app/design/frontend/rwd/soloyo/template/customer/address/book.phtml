@@ -1,0 +1,172 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+
+
+?>
+<?php
+/**
+ * Temlate for Mage_Customer_Block_Address_Book block
+ * @var $test Mage_Customer_Block_Address_Book
+ */
+?>
+<div class="page-title title-buttons">
+    <h1><?php echo $this->__('Địa chỉ giao hàng') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<div class="col2-set addresses-list">
+    <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+        <div class="fieldset">
+            <?php echo $this->getBlockHtml('formkey')?>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('First name') ?></span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="firstname" id="firstname"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getFirstname(); ?>"
+                           title="<?php echo $this->__('firstname') ?>"
+                           class="validate-length   required-entry  "
+                           />
+                </div>
+
+            </div>
+
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('Mobile') ?></span>
+                </div>
+                <div class="col-md-8">
+                    <input type="tel" name="telephone" id="mobile"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getTelephone(); ?>"
+                           title="<?php echo $this->__('mobile') ?>"
+                           class="onestepcheckout-input validate-length maximum-length-12 minimum-length-9 validate-digits  required-entry validate-number "
+                           maxlength="11" minlength="9"/>
+                </div>
+
+            </div>
+
+
+            <!--            Tinh/Thanh pho-->
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('State') ?></span>
+                </div>
+
+                <div class="custom-select-container col-md-8">
+                    <input type="hidden" name="region" id="address_region"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getRegion(); ?>"/>
+                    <div class="custom-select" id="address-state" onclick="select_address_state()">
+                        <span type="text" class="custom-select-content">Select a state</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="address-state-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!--            Quan/Huyen-->
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('City') ?></span>
+                </div>
+
+                <div class="custom-select-container col-md-8">
+                    <input type="hidden" name="city" id="address_city"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getCity(); ?>"/>
+                    <div class="custom-select" id="address-city" onclick="select_address_city()">
+                        <span type="text" class="custom-select-content">Select a city</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="address-city-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Xa/phuong-->
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('Xaphuong') ?></span>
+                </div>
+
+                <div class="custom-select-container col-md-8">
+                    <input type="hidden" name="xaphuong" id="address_xaphuong"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getXaphuong(); ?>"/>
+                    <div class="custom-select" id="address-xaphuong" onclick="select_address_xaphuong()">
+                        <span type="text" class="custom-select-content">Select a xa phuong</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="address-xaphuong-value"
+                         style="display: none">
+                    </div>
+                </div>
+
+            </div>
+
+            <!--            Address-->
+            <div class="row cRow">
+
+                <div class="label-row col-md-4">
+                    <span><?php echo $this->__('Address') ?></span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="street[]"
+                           id="street1"
+                           value="<?php echo $this->getPrimaryBillingAddress()->getStreet()[0]?>"
+                           class=" required-entry"/>
+                </div>
+            </div>
+            <input type="hidden" name="default_billing" value="1" />
+            <input type="hidden" name="default_shipping" value="1" />
+            <input type="hidden" name="postcode" value="10000" />
+            <input type="hidden" name="country_id" value="VN" />
+
+        </div>
+        <div class="buttons-set">
+            <button data-action="save-customer-address" type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save Address')) ?>" class="btn-soloyo"><span><span><?php echo $this->__('Save Address') ?></span></span></button>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var diachigiaohang_url = '<?php echo $this->getUrl('diachigiaohang/index/getAll', array('_secure' => true)) ?>';
+    function deleteAddress(addressId) {
+        if(confirm('<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Are you sure you want to delete this address?')) ?>')) {
+            window.location='<?php echo $this->getDeleteUrl() ?>id/'+addressId;
+        }
+        return false;
+    }
+//]]>
+</script>

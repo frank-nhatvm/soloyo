@@ -1,0 +1,143 @@
+<h4><?php echo $this->__('Địa chỉ giao hàng'); ?></h4>
+<?php
+$logged = $this->isCustomerLoggedIn();
+$has_addr = $this->customerHasAddresses();
+$billing_address = $this->getBillAddress();
+$email = $billing_address->getEmail();
+$phone = $billing_address->getTelephone();
+$firstname = $billing_address->getFirstname();
+if ($logged) {
+    $customer = Mage::getModel('customer/session')->getCustomer();
+    if (!$email) {
+        $email = $customer->getEmail();
+    }
+
+    if (!$phone) {
+        $phone = $customer->getMobile();
+    }
+
+    if (!$firstname) {
+        $firstname = $customer->getFirstname();
+    }
+}
+?>
+<div class="billingaddress-container">
+
+    <div>
+        <div id="bill_form"<?php if ($has_addr) {
+            echo ' style="display:block;" ';
+        } ?>>
+
+            <input type="hidden" name="billing[address_id]" id="billing_address_id"
+                   value="<?php echo $this->getBillAddress()->getId() ?>"/>
+
+            <div class="row soloyo-billing-input">
+                <input type="text" id="billing_firstname"
+                       name="billing[firstname]"
+                       value="<?php echo $firstname; ?>"
+                       title="Họ và tên"
+                       placeholder="Nguyễn Văn A"
+                       class="required-entry" <?php echo $this->getFieldParams() ?>
+                       maxlength="32"/>
+            </div>
+
+            <div class="row  soloyo-billing-input">
+                <input type="email" name="billing[email]" id="billing_email"
+                       value="<?php echo $this->htmlEscape($email) ?>"
+                       title="Email"
+                       placeholder="yourgmail@gmail.com"
+                       class="required-entry validate-email"
+                />
+            </div>
+
+
+            <div class="row soloyo-billing-input">
+                <input type="text" name="billing[telephone]" id="billing_telephone"
+                       value="<?php echo $this->htmlEscape($phone) ?>"
+                       title="<?php echo $this->__('Telephone') ?>"
+                       placeholder="0356098888"
+                       class=" validate-length maximum-length-11 minimum-length-9 validate-digits  required-entry validate-number "
+                       maxlength="11" minlength="9"/>
+            </div>
+
+
+            <div class="row ">
+                <!--            Tinh/Thanh pho-->
+                <div class="custom-select-container col-md-6   soloyo-billing-input" style="padding-left: 0px;">
+                    <input type="hidden" name="billing[region_id]" id="billing_region_id"
+                           value="<?php echo $this->getBillAddress()->getRegionId() ?>"/>
+                    <input type="hidden" name="billing[region]" id="billing_region"
+                           value="<?php echo $this->getBillAddress()->getRegion() ?>"/>
+                    <div class="custom-select" id="billing-state" onclick="select_billing_state()">
+                        <span type="text" class="custom-select-content">Chọn tỉnh/ thành phố</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="billing-state-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+
+                <!--            Quan/Huyen-->
+                <div class="custom-select-container col-md-6   soloyo-billing-input" style="padding-right: 0px">
+                    <input type="hidden" name="billing[city]" id="billing_city"
+                           value="<?php echo $this->getBillAddress()->getCity() ?>"/>
+                    <input type="hidden" name="billing[citylabel]" id="billing_city_label"
+                           value="<?php echo $this->getBillAddress()->getCitylabel() ?>"/>
+                    <div class="custom-select" id="billing-city" onclick="select_billing_city()">
+                        <span type="text" class="custom-select-content">Chọn quận/ huyện</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="billing-city-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <!--Xa/phuong-->
+                <div class="custom-select-container  soloyo-billing-input">
+                    <input type="hidden" name="billing[xaphuong]" id="billing_xaphuong"
+                           value="<?php echo $this->getBillAddress()->getXaphuong() ?>"/>
+                    <input type="hidden" name="billing[xaphuonglabel]" id="billing_xaphuonglabel"
+                           value="<?php echo $this->getBillAddress()->getXaphuonglabel() ?>"/>
+                    <div class="custom-select" id="billing-xaphuong" onclick="select_billing_xaphuong()">
+                        <span type="text" class="custom-select-content">Chọn xã/ phường</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="billing-xaphuong-value"
+                         style="display: none">
+                    </div>
+                </div>
+            </div>
+
+            <!--            Address-->
+            <div class="row">
+                <div class="soloyo-billing-input">
+                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]"
+                           id="billing_street1"
+                           placeholder="Số nhà, tên đường"
+                           value="<?php echo $this->htmlEscape($this->getBillAddress()->getStreet(1)) ?>"
+                           class=" required-entry"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div>
+        <input type="hidden" name="billing[use_for_shipping]" value="1"/>
+        <?php if ($logged): ?>
+            <div class="no-display">
+                <input type="hidden" value="1" name="billing[save_in_address_book]"/>
+            </div>
+        <?php endif; ?>
+    </div>
+
+</div>
+
+
+

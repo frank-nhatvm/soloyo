@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <soloyoadmin_adminhtml_banner_index>
+        <reference name="content">
+            <block type="soloyo/adminhtml_banner" name="banner"/>
+        </reference>
+    </soloyoadmin_adminhtml_banner_index>
+
+    <soloyoadmin_adminhtml_cate_index>
+        <reference name="content">
+            <block type="soloyo/adminhtml_cate" name="cate"/>
+        </reference>
+    </soloyoadmin_adminhtml_cate_index>
+
+    <soloyoadmin_adminhtml_products_index>
+        <reference name="content">
+            <block type="soloyo/adminhtml_products" name="products"/>
+        </reference>
+    </soloyoadmin_adminhtml_products_index>
+
+    <soloyoadmin_adminhtml_item_index>
+        <reference name="content">
+            <block type="soloyo/adminhtml_item" name="item"/>
+        </reference>
+    </soloyoadmin_adminhtml_item_index>
+</layout>

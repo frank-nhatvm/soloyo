@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <campaignadmin_adminhtml_campaign_index>
+        <reference name="content">
+            <block type="campaign/adminhtml_campaign" name="campaign" />
+        </reference>
+    </campaignadmin_adminhtml_campaign_index>
+
+    <campaignadmin_adminhtml_aff_index>
+        <reference name="content">
+            <block type="campaign/adminhtml_aff" name="aff" />
+        </reference>
+    </campaignadmin_adminhtml_aff_index>
+
+</layout>

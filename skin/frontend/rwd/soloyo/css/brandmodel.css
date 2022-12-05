@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.brandmodel-main {
+    margin-top: 64px;
+
+}
+
+.brandmodel-title {
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: normal;
+    color: #2d2d2d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sp-brandmodel-title1 {
+    width: 100%;
+}
+
+#sp-brandmodel-title2 {
+    width: 100%;
+}
+
+.row-brandmodel {
+    margin-top: 31px;
+}
+
+.label-row {
+    font-family: vietnam_font;
+    color: #2d2d2d;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.div-btn-view-case {
+    margin-top: 57px;
+    width: 100%;
+
+}
+
+#btn-view-case {
+    width: 100%;
+    text-align: center;
+
+    background: #0bb5a2;
+    height: 44px;
+    border: solid 1px #0bb5a2;
+    border-radius: 22px;
+    color: #ffffff;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+}
+

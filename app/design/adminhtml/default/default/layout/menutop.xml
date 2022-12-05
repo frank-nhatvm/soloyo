@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <menutopadmin_adminhtml_menutop_index>
+        <reference name="content">
+            <block type="menutop/adminhtml_menutop" name="menutop" />
+        </reference>
+    </menutopadmin_adminhtml_menutop_index>
+</layout>

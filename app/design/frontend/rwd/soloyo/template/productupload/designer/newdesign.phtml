@@ -1,0 +1,141 @@
+<?php
+
+$designer_id = $this->getCurrentDesignerId();
+
+$all_category = Mage::helper('productupload')->getAllCategory();
+
+$product_upload = $this->getCurrentDesign();
+
+$productupload_id = $product_upload->getId();
+$design_url = $this->getUrl('*/*/design',array('_secure' => true));
+$demo_design_url = $this->getUrl('productupload/index/download_demo',array('_secure'=>true));
+?>
+
+<h1>Tạo mới thiết kế cho ốp lưng</h1>
+<div>
+    <div class="button-container col-md-12">
+        <button class="btn-save-new-design-disable" id="btn-save-new-design">Save</button>
+        <button id="btn-cancel-design">Cancel</button>
+    </div>
+
+    <div >
+        <form action="<?php echo $this->getCreateNewDesignUrl() ?>" method="post" id="form-new-design"
+              class="scaffold-form"
+              enctype="multipart/form-data">
+
+            <input type="hidden" name="form_key"
+                   value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+
+            <input type="hidden" name="designer_id" value="<?php echo $designer_id ?>"/>
+
+            <?php if ($productupload_id): ?>
+                <input type="hidden" name="productupload_id" value="<?php echo $productupload_id ?>"/>
+            <?php endif; ?>
+
+
+            <div class="row new-design-row">
+                <h5>Thiết kế cho</h5>
+                <div class="custom-select-container col-md-6">
+
+                    <input type="hidden" name="brand_id" id="brand-mobile-input"
+                           value=""/>
+                    <div class="custom-select" id="brand-mobile" onclick="select_brand()">
+                        <span type="text" class="custom-select-content">Lựa chọn một hãng điện thoại</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="brand-mobile-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+
+                <div class="custom-select-container col-md-6">
+
+                    <input type="hidden" name="model_id" id="model-mobile-input"
+                           value=""/>
+                    <div class="custom-select" id="model-mobile" onclick="select_mobile()">
+                        <span type="text" class="custom-select-content">Lựa chọn một dòng điện thoại</span>
+                        <i class="material-icons md-24 ">arrow_drop_down</i>
+                    </div>
+                    <div class="custom-select-option box-shadow-class" id="model-mobile-value"
+                         style="display: none">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!--            category-->
+
+            <div class="row new-design-row">
+                <h5>Chủ đề của thiết kế</h5>
+                <div class=" col-md-12">
+                    <input type="text" name="cate_name" id="cate-name"
+                           placeholder="Nhập tên chủ đề. Ví dụ: Bóng đá">
+                </div>
+            </div>
+
+
+            <div class="row new-design-row">
+                <h5>Tên thiết kế</h5>
+                <div class="col-md-12">
+                    <input type="text" name="product_name" id="new-case-design-name"
+                           placeholder="Nhập tên thiết kế. Ví dụ: ốp lưng Messi iPhone X">
+                </div>
+            </div>
+
+            <div class="row new-design-row">
+                <h5>Miêu tả về thiết kế</h5>
+                <span style="font-family: vietnam_font; font-size: 10px;">(Bạn có thể bỏ trống phần này. Các thiết kế có sẵn phần miêu tả sẽ được duyệt nhanh hơn)</span>
+                <textarea name="description" id="description" cols="30" rows="10" style="font-size: 14px; font-family: vietnam_font;text-align: left">
+
+                    <?php echo $product_upload->getDescription()?>
+                </textarea>
+            </div>
+
+            <div class="row new-design-row">
+                <div class="col-md-6">
+                    <h5>Ảnh mockup cho sản phẩm</h5>
+                    <div>
+                        <span>Kích thước file: 500x500px hoặc 1000 x 1000 px. Định dạng file: png, jpg</span>
+                        <br/>
+                        <a href="https://soloyo.vn/op-lung-pubg-iphone6.html">Xem mockup mẫu</a>
+                        <input style="margin-top: 10px;" type="file" name="image_product" id="image_product-design" accept="image/*">
+                        <img src="" alt="image_product-preview" id="image_product-preview"
+                             style="height: 80px; display: none">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Ảnh để in ấn</h5>
+                    <div>
+                        <span>Hệ màu: CMYK, solution: 300dpi, định dạng file: pdf</span>
+                        <br/>
+                        <a href="<?php echo $demo_design_url; ?>">Xem mẫu</a>
+                        <input style="margin-top: 10px;" type="file" name="image_print" id="image_print-design" accept="application/pdf">
+                        <img src="" alt="image_product-preview" id="image_print-preview"
+                             style="height: 80px; display: none">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+
+    var brand_model_url = '<?php echo $this->getBrandModelUrl() ?>';
+    var design_url = '<?php echo $design_url; ?>';
+</script>
+
+
+
+

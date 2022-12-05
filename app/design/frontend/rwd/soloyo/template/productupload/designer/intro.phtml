@@ -1,0 +1,182 @@
+<?php
+
+$designer_image_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . 'productupload' . DS . 'designer';
+
+?>
+
+<div class="intro-banner">
+    <img src="<?php echo $designer_image_path . DS . 'baner_intro_designer.png'; ?>" alt="banner-intro">
+    <a  href="<?php echo Mage::getUrl('productupload/designer/register'); ?>">Đăng ký</a>
+</div>
+
+<div class="intro-body">
+
+    <div class="row">
+        <?php if (!Mage::getModel('customer/session')->isLoggedIn()): ?>
+        <span>Bạn đã tham gia chương trình Designer cuả Soloyo. <a href="<?php echo Mage::getUrl('customer/account/login') ?>">Đăng nhập</a> ngay để bắt đầu thiết kế</span>
+        <?php endif;?>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <img class="banner-row-designer" src="<?php echo $designer_image_path . DS . 'banner-money.png'; ?> "
+                 alt="banner-money">
+        </div>
+
+        <div class="col-md-6">
+            <div>
+                <div class="title">
+                     <span>Cách kiếm tiền cùng Soloyo</span>
+                </div>
+                <div class="detail">
+                    <div>
+                        <span>Bạn sẽ là người thiết kế các hình ảnh cho ốp lưng điện thoại.</span>
+                    </div>
+                    <div>
+                        <span>Soloyo sẽ thực hiện bán, in ấn và vận chuyển.</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="margin-top: 60px">
+                <div class="title">
+                    <span>Hình thức rút tiền</span>
+                </div>
+                <div class="detail">
+                    <div>
+                        <span>Khi tài khoản của bạn có số dư lớn hơn 50000 vnd, bạn có quyền yêu cầu Soloyo thanh toán.</span>
+                    </div>
+                    <div>
+                        <span>Sau khi nhận được yêu cầu, Soloyo sẽ thực hiện chuyển khoản cho bạn qua internet banking. </span>
+                    </div>
+                    <div>
+                        <span>Mỗi giao dịch Soloyo sẽ gửi bạn hoá đơn và forward email của ngân hàng tới email của bạn.</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <h2 class="h2-tittle">Các hình thức bán mẫu thiết kế</h2>
+        <div class="col-md-6">
+
+            <div>
+                <div class="title">
+                    <span>Bán trực tiếp mẫu cho Soloyo: </span>
+                </div>
+                <div class="detail">
+                    <span>Đối với hình thức này bạn sẽ gửi demo (mockup) và giá
+                        bán đến email nhat.thtb@gmail.com. Nếu Soloyo đồng ý với giá bán của bạn, bạn sẽ gửi hình ảnh để
+                        in ấn tới Soloyo. Sau đó, Soloyo sẽ chuyển tiền cho bạn.</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="title">
+                    <span>
+                        Bán theo đơn hàng:
+                    </span>
+                </div>
+                <div class="detail">
+                    <span>
+                        Với hình thức này, bạn sẽ thiết kế mẫu ốp lưng và tải lên hệ thống
+                        của Soloyo. Mỗi đơn hàng cho mẫu thiết kế này, bạn sẽ kiếm được 30000 vnd. Sau khi thu tiền từ
+                        khách hàng, Soloyo sẽ cộng 30000 vnd vào tài khoản của bạn.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <img src="<?php echo $designer_image_path . DS . 'banner-sellconvert-method.png'; ?>" alt="banner-sell-method"
+                 class="banner-row-designer">
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <img class="banner-row-designer" src="<?php echo $designer_image_path.DS.'banner-type-image.png' ;?>" alt="banner-type-image">
+        </div>
+
+        <div class="col-md-6">
+
+            <h2 class="h2-tittle">Bạn sẽ cần thiết kế hai loại hình ảnh</h2>
+
+            <div>
+            <div class="title">
+                <span>Ảnh demo (mockup):</span>
+            </div>
+                <div class="detail">
+                    Hình ảnh này sẽ được sử dụng để hiện thị trên website cho người dùng xem. Kích
+                    thước cho ảnh này là 500 x 500 pixel.
+                </div>
+
+            </div>
+
+            <div>
+                <div class="title">
+                    <span>Ảnh in ấn: </span>
+                </div>
+                <div class="detail">
+                    <span>Hình ảnh này sẽ được dùng bởi máy in để in lên các phôi ốp lưng. Sau khi đăng ký tài
+                        khoản các bạn sẽ được lấy các kích thước cho từng loại điện thoại. Yêu cầu cho hình ảnh này là :sử
+                        dụng hệ màu CMYK, định dạng file là Photoshop pdf, solution: 300 dpi, nên sử dụng các hình ảnh
+                        vector để bản in được đẹp nhất.</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row" style="margin-top: 20px">
+
+        <div class="col-md-6">
+            <h2 class="h2-tittle">Làm thế nào để biết tôi đã bán được bao nhiêu đơn?</h2>
+            <div class="detail">
+                <span>Sau khi đăng ký và được phê duyệt bởi Admin, Soloyo cung cấp cho bạn tính năng để tải một thiết kế mới lên. Tại đây bạn cũng có thể quản lý các thiết kế
+                mà mình đã tải lên: xem trạng thái của các mẫu thiết kế, xem số lượng đơn hàng đã bán được cho mỗi thiết kế...</span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <img class="banner-row-designer" src="<?php echo $designer_image_path . DS . 'quan-ly-thiet-ke.png'; ?>"
+                 alt="quan-ly-thiet-ke">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+
+        <div class="col-md-6">
+            <img class="banner-row-designer" src="<?php echo $designer_image_path . DS . 'quan-ly-giao-dich.png'; ?>"
+                 alt="quan-ly-thiet-ke">
+        </div>
+        <div class="col-md-6">
+            <h2 class="h2-tittle">Làm thế nào để thực hiện rút tiền?</h2>
+            <div class="detail">
+                <span>
+                    Sau khi đăng ký thành công Soloyo cung cấp cho Designer tính năng để xem số tiền mình đã kiếm được và
+                    yêu cầu rút tiền để chuyển vào tài khoản của mình. Đồng thời Designer cũng có thể xem được lịch sử các lần đã
+                    yêu cầu rút tiền của mình.
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row design-now">
+        <a  href="<?php echo Mage::getUrl('productupload/designer/register'); ?>">Đăng ký</a>
+
+    </div>
+
+</div>

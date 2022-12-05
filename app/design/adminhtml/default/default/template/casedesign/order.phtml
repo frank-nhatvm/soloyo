@@ -1,0 +1,45 @@
+<?php
+
+$case_order= $this->getCaseOrder();
+
+$case_order_items = $case_order['items'];
+
+
+
+?>
+
+<?php foreach ($case_order_items as $item ):?>
+
+    <div>
+        <div class="item-product-name">
+            <h2><?php echo $item['product_name'] ?></h2>
+        </div>
+
+        <?php if($item['content_design']): ?>
+        <div>
+
+            <div class="original-design" style="width: 50%;float: left ;height: 400px;background: blue">
+                <div class="casedesign-canvas-container">
+                    <canvas id="canvas-desgin"
+                            width="<?php echo $design_area_width . 'px' ?>"
+                            height="<?php echo $design_area_height . 'px' ?>"></canvas>
+                </div>
+
+
+            </div>
+            <div class="image-design" style="width: 50%;float: left">
+                <img src="<?php echo Mage::helper('casedesign')->getUrlPathCasedesignCustomer().$item['design_image'] ?>" alt="">
+            </div>
+
+        </div>
+        <?php else: ?>
+
+            <div class="image-design" style="width: 25%">
+                <img src="<?php echo Mage::helper('productupload')->getUrlImageProductUpload().$item['design_image'] ?>" alt="">
+            </div>
+
+        <?php endif; ?>
+        
+    </div>
+    
+<?php endforeach;?>

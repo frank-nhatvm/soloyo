@@ -1,0 +1,71 @@
+<?php
+$menu = Mage::getModel('menutop/menutop')->getMenuTopItems();
+?>
+<div id="header-category">
+    <nav id="main-menu-category">
+        <ul>
+            <?php foreach ($menu as $item_menu) : ?>
+                <?php $parent_id = $item_menu['id']; ?>
+                <li style="margin-left: 70px">
+                    <div style="float: left;overflow: hidden;text-align: left;display: inline">
+                        <div id="menutop-<?php echo $parent_id; ?>" onmouseover="showSubMenu(this.id)"
+                             style="cursor: pointer; ">
+                            <a href="<?php echo $item_menu['url'] ?>">
+                                <?php echo $item_menu['name'] ?>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</div>
+
+<div class="containerSubMenu" onmouseleave="hideSubMenu()" id="containerSubMenuTop">
+    <?php $numElementsOnRow = 5; ?>
+    <?php foreach ($menu as $item_menu) : ?>
+        <?php $index = 0; ?>
+
+        <?php $parent_id = $item_menu['id']; ?>
+        <div id="subMenuTop-<?php echo $parent_id ?>" class="subMenuTop" style="display: none">
+            <?php $subCategories = $item_menu['sub_cate'] ?>
+            <?php if (count($subCategories) > 15) $numElementsOnRow = 10; ?>
+            <ul>
+                <?php foreach ($subCategories as $subCategory): ?>
+                    <?php if ($index % $numElementsOnRow == 0): ?>
+                        <div class="column-submenuTop">
+                    <?php endif; ?>
+                    <?php $index++; ?>
+                    <ol>
+                        <a href="<?php echo $subCategory['url'] ?>"> <?php echo $subCategory['name'] ?></a>
+                    </ol>
+                    <?php if ($index % $numElementsOnRow == 0): ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+
+    <?php endforeach; ?>
+</div>
+
+<script>
+    function showSubMenu(elementId) {
+        if ($j('.containerSubMenu').css('display') == 'none') {
+            $j('.containerSubMenu').css('display', 'block');
+        }
+        $j('.subMenuTop').each(function () {
+            $j(this).css('display', 'none');
+        });
+        console.log('showSubMenu ' + elementId);
+        var arrayParentId = elementId.split('-');
+        var parentId = arrayParentId[1];
+        $j('#subMenuTop-' + parentId).css('display', 'block');
+    }
+    function hideSubMenu() {
+        $j('#containerSubMenuTop').css('display', 'none');
+
+    }
+</script>
+

@@ -1,0 +1,608 @@
+@media (max-width: 1350px) {
+
+}
+
+@media (max-width: 1281px) {
+
+}
+
+@media (max-width: 1200px) {
+
+
+
+
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+
+}
+
+@media (max-width: 1023px) {
+
+    .footer-main{
+
+    }
+
+    .col-md-6{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    /* css for phone in here */
+    .main-content{
+        padding-top: 20px;
+        margin-top: 0px !important;
+    }
+
+    .page-title h1{
+        font-size: 20px !important;
+    }
+
+    #header-control{
+        height: 70px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* for menu mobile */
+    #menu{
+        /*display: block !important;*/
+        margin-top: 80px;
+        border-top: solid 1px #f2f3f5;
+    }
+
+    .menu-header{
+        background-image: url(http://127.0.0.1:8888/soloyostaging/skin/frontend/rwd/soloyo/images/arrow.png);
+
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+    .menu-section{
+        padding: 16px 32px;
+        font-family: vietnam_font;
+        line-height: 15px;
+        border-bottom: solid 1px #f2f3f5;
+        background: #ffffff;
+    }
+
+    .menu-section a :hover{
+        background:  #0bb5a2;
+        color: #ffffff;
+    }
+
+    .menu-section a{
+        font-family: vietnam_font;
+        font-weight: normal;
+        font-size: 14px;
+        color: #2d2d2d !important;
+    }
+
+    .slideout-menu {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 256px;
+        min-height: 100vh;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index: 0;
+        display: none;
+    }
+
+    .slideout-menu-left {
+        left: 0;
+    }
+
+    .slideout-menu-right {
+        right: 0;
+    }
+
+    .slideout-panel {
+        position: relative;
+        z-index: 1;
+        will-change: transform;
+        background-color: #FFF; /* A background-color is required */
+        min-height: 100vh;
+    }
+
+    .slideout-open,
+    .slideout-open body,
+    .slideout-open .slideout-panel {
+        overflow: hidden;
+    }
+
+    .slideout-open .slideout-menu {
+        display: block;
+    }
+
+    /*end for menu mobile */
+
+    #header-top{
+        height: auto !important;
+        padding-bottom: 5px;
+    }
+
+    #header-category {
+        display: none;
+    }
+
+    #mobile-nav-icon {
+        display: inline !important;
+        top:-3px;
+        left: -5px;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    #menu-top-logo{
+        top: -37px;
+        display: inline;
+
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        height: 27px !important;
+    }
+
+    #header-right{
+        position: inherit;
+    }
+
+    #menu-top-search{
+        top: 25px;
+        right: 95px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #menu-top-account{
+        top: 25px;
+        right: 60px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #menu-top-cart{
+        top: 25px;
+        right: 20px !important;
+        padding: 0px 0px !important;
+    }
+
+    .top-control{
+        font-size: 24px;
+    }
+
+    #shopping_cart i {
+        right: 0px;
+        position: absolute;
+    }
+
+    .menu-top-cart-item-count{
+        width: 14px;
+        top: -8px !important;
+        right: -5px !important;
+        height: 14px;
+    }
+
+    .addedCartRow{
+        right: -11px;
+    }
+
+    #menu-top-search-container{
+        display: block;
+        position: fixed;
+        width: 100%;
+        top: 70px;
+        padding-left: 12px;
+        padding-right: 15px;
+
+    }
+
+    #query-search-menu-top{
+        width: 100%;
+        height: 30px;
+    }
+
+    #close-menu-top-search{
+        right: 24px;
+        top: 5px;
+    }
+
+    .brandmodel-label{
+        padding: 0px 0px !important;
+    }
+
+    .brandmodel-select-container{
+        padding: 0px 0px !important;
+    }
+
+    .div-btn-view-case{
+        padding: 0px 0px !important;
+    }
+    #btn-view-case{
+        padding: 0px 0px !important;
+    }
+
+
+
+    /* home */
+
+    .line-home {
+        margin-left: 11px;
+    }
+
+    .title-h2-home h2 {
+        padding-left: 11px;
+        font-size: 14px !important;
+    }
+
+    .owl-carousel{
+        padding-left: 11px;
+    }
+
+    .banner-home{
+        top:70px !important;
+
+
+    }
+
+    .banner-desktop{
+     display: none !important;
+    }
+
+    .banner-mobile{
+        display: block;
+    }
+
+    #effect-banner{
+        height: 196px !important;
+
+    }
+
+    #title-banner1{
+        font-size: 23px !important;
+        top:50px !important;
+        left:6% !important;
+
+    }
+
+    #title-banner2{
+        display: none;
+    }
+
+    .btn-thiet-ke-ngay-home{
+        top:110px !important;
+        left: 25% !important;
+
+    }
+
+    .carousel-inner > .item > img{
+        height: 200px !important;
+    }
+
+    .content-home {
+        margin-top: 90px !important;
+    }
+
+    .home-cate{
+        width: 100% !important;
+    }
+
+    .image-home-cate{
+        width: 100% !important;
+    }
+
+    .cac-chu-de .third
+    {
+        margin-left: 0px !important;
+    }
+    .row-home-content{
+        margin-top: 38px !important;
+    }
+
+
+    .row-productlist-home ol li{
+        width: 30% !important;
+        margin-right: 2% !important;
+    }
+
+
+
+    .name-home-productlist{
+        font-size: 11px !important;
+    }
+
+    /* end home */
+
+    /* product detail */
+
+    .product-name h1{
+        font-size: 16px !important;
+    }
+
+    .price-box .price, .price{
+        font-size: 16px !important;
+    }
+    .short-description{
+        font-size: 14px !important;
+        margin-top: 10px !important;
+    }
+
+    .container-designby{
+        margin-top: 10px !important;
+    }
+
+    .container-designby span{
+        font-size: 14px !important;
+    }
+
+    .container-designby a{
+        font-size: 14px !important;
+    }
+
+    #soloyo-related-product{
+        margin-top: 20px !important;
+    }
+
+    #soloyo-related-product h2{
+
+        font-size: 16px !important;
+
+
+    }
+    .product-view{
+        margin-top: auto !important;
+    }
+
+    .product-info-box{
+        padding-left: 0px !important;
+    }
+
+    .product-view .add-to-cart .qty-wrapper label{
+        display: none;
+    }
+
+    .product-view .add-to-cart-wrapper
+    {
+
+        background: #0bb5a2;
+    }
+
+    .product-view .add-to-cart{
+        padding: 0px 0px;
+        margin-bottom: 0px;
+    }
+
+    .product-view .add-to-cart-buttons{
+        width: 81%;
+        padding: 0px 0px;
+    }
+
+    .product-view .add-to-cart-buttons .button{
+        border: none;
+        padding: 0px 0px;
+        border-radius: 0px !important;
+        margin-bottom: 0px;
+        height: 44px !important;
+    }
+
+    .product-view .add-to-cart .qty-wrapper .qty{
+        border: solid 1px #0bb5a2;
+    }
+
+    .tab-controller-iguide img{
+        top: 26px !important;
+    }
+
+    .tab-controller-iguide span{
+        font-size: 16px !important;
+    }
+
+
+    /* end product detail */
+
+
+    /* onestepcheckout */
+
+    .onestepcheckout-item-name{
+        font-size: 14px !important;
+    }
+
+    .onestepcheckout-quoteitem-info{
+        padding-left: 10px;
+    }
+
+    #soloyo-onestepcheckout{
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0px !important;
+    }
+
+    .cRow{
+        margin-top: 17px !important;
+    }
+
+
+    .osc-totals{
+        margin-bottom: 88px !important;
+    }
+
+
+    .buttons-set button.button{
+        margin: 0px 0px !important;
+        border-radius: 0px !important;
+        width: 100% !important;
+    }
+
+    .buttons-set{
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    /* end onestepcheckout*/
+
+    /* login */
+
+    body.customer-account .my-account .page-title h1{
+        text-align: start !important;
+        font-size: 20px !important;
+    }
+
+    .fake-view-mobile{
+        display: block !important;
+    }
+
+    .buttons-set{
+        position: fixed !important;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background: #0bb5a2;
+        padding-top: 0px !important;
+    }
+
+    .buttons-set button{
+        width: 100% !important;
+        border-radius: 0px
+    }
+
+    .login-content{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    .col-md-5{
+        padding-left: 0px !important;
+        padding-right: 0px; !important;
+    }
+
+    .suggest-login span{
+        font-size: 17px !important;
+    }
+    /*end login*/
+
+    /*cart */
+    .cart .page-title .checkout-types{
+        display: none !important;
+    }
+
+    .cart-totals-wrapper .bottom{
+        display: block !important;
+        margin: 0px 0px;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+
+    .coupon-label span{
+        font-size: 14px !important;
+    }
+    .cart-totals-wrapper .bottom li{
+        margin: 0px 0px;
+    }
+
+    .cart-totals-wrapper .bottom li button{
+        border-radius: 0px !important;
+    }
+
+    .cart-totals-wrapper .cart-totals{
+        margin-bottom: 84px !important;
+    }
+
+    .cart-table .cart-footer-actions .btn-update1{
+        display: none !important;
+    }
+
+    .cart-table .cart-footer-actions #empty_cart_button{
+        float : left !important;
+    }
+
+    .cart-table .cart-footer-actions .btn-update2{
+        display: block !important;
+        float: right !important;
+    }
+    .discount-form .button-wrapper{
+        margin-top: 5px;
+    }
+
+    /* end cart*/
+
+
+
+}
+
+@media (max-width: 900px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+}
+
+@media (max-width: 700px) {
+
+}
+
+@media (max-width: 640px) {
+
+}
+
+@media (max-width: 580px) {
+
+}
+
+@media (max-width: 567px) {
+
+}
+
+@media (max-width: 479px) {
+
+}
+
+@media (max-width: 385px) {
+
+}
+
+@media (max-width: 379px) {
+
+
+}
+
+@media (max-width: 321px) {
+    /* iPhone 5/SE */
+
+}
+
+/*@media (max-width: 1300px) {*/
+
+/*}*/
+
+/*@media (max-width: 1023px) {*/
+
+/*}*/
+
+/*@media (max-width: 767px) {*/
+
+/*}*/
+
+/*@media (max-width: 580px) {*/
+
+/*}*/
+
+/*@media (max-width: 1190px){*/
+/**/
+/*}*/
+
+/*@media (max-width: 1100px){*/
+/**/
+/*}*/

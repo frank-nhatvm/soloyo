@@ -1,0 +1,135 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2017 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+?>
+<div class="dashboard">
+    <div class="page-title">
+        <h1>Thông tin tài khoản</h1>
+    </div>
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data" >
+        <div class="fieldset">
+            <?php echo $this->getBlockHtml('formkey')?>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Họ và tên</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="firstname" id="firstname"
+                           value="<?php echo $this->getCustomer()->getFirstname(); ?>"
+                           title="Họ và tên"
+                           class="validate-length   required-entry  "
+                    />
+                </div>
+
+            </div>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Email</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="email" class="input-text validate-email required-entry"/>
+
+                </div>
+
+            </div>
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Số điện thoại</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="tel" autocapitalize="off" autocorrect="off" spellcheck="false" name="mobile" id="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getmobile()) ?>" title="Số điện thoại" class="input-text validate-length maximum-length-12 minimum-length-9 validate-digits  required-entry validate-number " maxlength="11" minlength="9"/>
+
+                </div>
+
+            </div>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Mật khẩu hiện tại</span>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="input-text no-display" name="dummy" id="dummy" />
+                    <input type="password" title="Mật khẩu hiện tại" class="input-text required-entry" name="current_password" id="current_password" />
+                </div>
+            </div>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+
+                </div>
+                <div class="col-md-8 control">
+
+                    <input style="display: inline" type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="Thay đổi mật khẩu"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><label for="change_password">Thay đổi mật khẩu</label>
+                </div>
+            </div>
+        </div>
+        <div class="fieldset" style="display:none;">
+            <h2 class="legend">Thay đổi mật khẩu</h2>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Mật khẩu mới</span>
+                </div>
+                <div class="col-md-8">
+
+                    <input type="password" title="Mật khẩu mới" class="input-text required-entry validate-password" name="password" id="password" />
+                </div>
+            </div>
+
+            <div class="row cRow">
+                <div class="label-row col-md-4">
+                    <span>Xác nhận mật khẩu mới</span>
+                </div>
+                <div class="col-md-8">
+
+                    <input type="password" title="Xác nhận mật khẩu mới" class="input-text required-entry validate-cpassword" name="confirmation" id="confirmation" />
+                </div>
+            </div>
+
+        </div>
+        <div style="width: 100%; height: 88px; display: none" class="fake-view-mobile"></div>
+        <div class="buttons-set">
+
+            <button style="padding-left: 5px;padding-right: 5px" type="submit" title="Lưu thông tin tài khoản" class=" btn-soloyo">Lưu thông tin tài khoản</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    function setPasswordForm(arg){
+        $('password').up('.fieldset')[arg ? 'show': 'hide']();
+    }
+
+    <?php if($this->getCustomer()->getChangePassword()): ?>
+    setPasswordForm(true);
+    <?php endif; ?>
+    //]]>
+</script>

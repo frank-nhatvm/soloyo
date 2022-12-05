@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Soloyo_Casedesign>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Soloyo_Casedesign>
+    </modules>
+</config>

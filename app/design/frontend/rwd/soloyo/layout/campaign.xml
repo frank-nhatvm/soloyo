@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <!-- update layout for all frontend page -->
+    </default>
+    <campaign_aff_index>
+        <reference name="head">
+            <action method="addJs"><script>soloyo/aff.js</script></action>
+
+        </reference>
+        <reference name="content">
+            <block type="campaign/aff" name="aff" template="campaign/aff.phtml" />
+        </reference>
+    </campaign_aff_index>
+
+    <campaign_index_tet>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/owl.carousel.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/owl.theme.css</stylesheet></action>
+            <action method="addJs"><script>soloyo/owl.carousel.js</script></action>
+            <action method="addJs"><script>soloyo/tetcampaign.js</script></action>
+            <action method="setTitle"><title>Mua ốp lưng trúng điện thoại Vsmart Active 1</title></action>
+            <block type="core/template" name="campaignheadface" as="campaignheadface" template="campaign/headface.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="campaign/campaign" name="campaign" template="campaign/campaign.phtml" />
+        </reference>
+    </campaign_index_tet>
+
+    <campaign_index_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/owl.carousel.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/owl.theme.css</stylesheet></action>
+            <action method="addJs"><script>soloyo/owl.carousel.js</script></action>
+            <action method="addJs"><script>soloyo/tetcampaign.js</script></action>
+            <action method="setTitle"><title>Mua ốp lưng trúng điện thoại Vsmart Active 1</title></action>
+            <block type="core/template" name="campaignheadface" as="campaignheadface" template="campaign/headface.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="campaign/campaign" name="campaign" template="campaign/campaign.phtml" />
+        </reference>
+    </campaign_index_index>
+
+</layout>

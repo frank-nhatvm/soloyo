@@ -1,0 +1,61 @@
+
+
+<div id="soloyo-onestepcheckout">
+
+    <form action="" name="osc_form" id="onestepcheckout_orderform">
+        <div>
+
+            <?php echo $this->getChildHtml('review') ?>
+            
+            <div class="onestepcheckout-billingaddress">
+                <?php echo $this->getChildHtml('billing.address') ?>
+            </div>
+
+            <?php if (Mage::getStoreConfig('onestepcheckout/general/comment')) : ?>
+            <div class="  soloyo-billing-input">
+                                    <textarea name="order-comment"
+                                              id="order-comment" placeholder="Ghi chú cho đơn hàng">
+                                        <?php echo trim(Mage::getSingleton('customer/session')->getOrderCustomerComment()) ?>
+                                    </textarea>
+            </div>
+
+        </div>
+        <?php endif; ?>
+
+<!--        --><?php //echo $this->getChildHtml('shipping.method') ?>
+<!--        -->
+<!--        --><?php //echo $this->getChildHtml('payment.method') ?>
+
+        <span class="no-display">  <input class="radio paymethod" name="shipping_method" type="radio" value="soloyo_ishipping_soloyo_ishipping" id="s_method_soloyo_ishipping_soloyo_ishipping" checked="checked"></span>
+        <span class="no-display"><input id="p_method_cashondelivery" value="cashondelivery" type="radio" name="payment[method]" checked="checked" class="radio"></span>
+        <div id="container-totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+        </div>
+
+        <div class="row">
+            <button id="soloyo-btn-checkout" type="button" title="<?php echo $this->__('Thanh toán khi nhận hàng') ?>" disabled
+                    class="btn btn-fluid button btn-checkout "
+                    onclick="save_order(); return false;"><?php echo $this->__('Thanh toán khi nhận hàng') ?></button>
+        </div>
+        <div>
+            <span id="loading-label" style="display: none">Đang gửi yêu cầu thanh toán</span>
+        </div>
+
+
+</div>
+</form>
+
+
+<script type="text/javascript">
+
+    var save_order_url = '<?php echo $this->getUrl('onestepcheckout/index/saveOrder', array('_secure' => true)) ?>';
+    var update_checkout_url = '<?php echo $this->getUrl('onestepcheckout/index/updateCheckout', array('_secure' => true)) ?>';
+    var update_couponcode_url = '<?php echo $this->getUrl('onestepcheckout/index/updateCoupon', array('_secure' => true)) ?>';
+
+    var success_url = '<?php echo $this->getUrl('onestepcheckout/index/success', array('_secure' => true)) ?>';
+    var diachigiaohang_url = '<?php echo $this->getUrl('diachigiaohang/index/getAll', array('_secure' => true)) ?>';
+
+
+</script>
+
+</div>

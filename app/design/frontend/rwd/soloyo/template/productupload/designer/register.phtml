@@ -1,0 +1,128 @@
+<?php
+$is_logged = Mage::getSingleton('customer/session')->isLoggedIn();
+if ($is_logged) {
+    $customer_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+    $customer = Mage::getSingleton('customer/session')->getCustomer();
+}
+?>
+
+
+<div>
+
+    <div class="banner-designer">
+        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . 'banner' . DS . 'banner_designer.png'; ?>"
+             alt="banner-designer" style="width: 100%">
+    </div>
+
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+
+    <div class="registered-designer">
+        <span>Bạn đã là Designer. <a href="<?php echo Mage::getUrl('customer/account/login') ?>">Đăng nhập</a> ngay để bắt đầu thiết kế</span>
+
+    </div>
+
+    <form action="<?php echo $this->getRegisterUrl() ?>" method="post" id="form-validate" class="scaffold-form"
+          enctype="multipart/form-data">
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+        <?php if ($is_logged): ?>
+
+            <input type="hidden" name="customer[customer_id]" value="<?php echo $customer_id ?>">
+        <?php else: ?>
+            <div class="col-md-6">
+                <h4>Thông tin đăng nhập</h4>
+                <div class="login-phone ">
+                    <div class="label-login">
+                        <span>Họ và tên</span>
+                    </div>
+                    <input name="customer[firstname]" id="firstname" type="text"
+                           class="login-input validate-length   required-entry  "
+
+                           title="Họ và tên"
+                    />
+                </div>
+
+                <div class="login-phone">
+                    <div class="label-login">
+                        <span>Số điện thoại</span>
+                    </div>
+                    <input name="customer[mobile]" id="login_phone" type="text"
+                           class="login-input validate-length maximum-length-12 minimum-length-10 validate-digits  required-entry validate-number "
+                           maxlength="11" minlength="9"
+                           title="Số điện thoại"
+                    />
+                </div>
+
+                <div class="login-password">
+
+                    <div class="label-login">
+                        <span>Mật khẩu</span>
+                    </div>
+                    <input type="password" name="customer[password]"
+                           class="login-input input-text required-entry validate-password" id="password"
+                           title="Mật khẩu"
+                    />
+                </div>
+                <div class="login-password ">
+
+                    <div class="label-login">
+                        <span>Xác  Mật khẩu</span>
+                    </div>
+                    <input type="password" name="customer[confirmation]"
+                           class="login-input input-text required-entry validate-password" id="confirmation"
+                           title="Mật khẩu"
+                    />
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <div class="col-md-6">
+            <h4>Thông tin Designer</h4>
+
+            <div class="email">
+                <div class="label-login">
+                    <span>Email</span>
+                </div>
+                <input name="customer[email]" id="email" type="text"
+                       class="login-input validate-length   required-entry  " title="Email"/>
+            </div>
+            <span>Các thông tin dưới đây được sử dụng để chuyển tiền cho bạn khi số dư của bạn lớn hơn 50000vnd. Bạn có thể cập nhật các thông tin này sau khi đăng ký.</span>
+            <div class="bank-owner-name">
+                <div class="label-login">
+                    <span>Tên chủ thẻ</span>
+                </div>
+                <input name="designer[bank_owner_name]" id="bank_owner_name" type="text"
+                       class="login-input validate-length   required-entry  " title="Bank owner name"/>
+            </div>
+
+            <div class="bank-account-number">
+                <div class="label-login">
+                    <span>Số tài khoản</span>
+                </div>
+                <input name="designer[bank_account_number]" id="bank_account_number" type="text"
+                       class="login-input validate-length   required-entry  " title="Bank account number"/>
+            </div>
+
+            <div class="bank-name">
+                <div class="label-login">
+                    <span>Tên ngân hàng</span>
+                </div>
+                <input name="designer[bank_name]" id="bank_name" type="text"
+                       class="login-input validate-length   required-entry  " title="Bank name"/>
+            </div>
+
+            <div class="bank-area">
+                <div class="label-login">
+                    <span>Chi nhánh</span>
+                </div>
+                <input name="designer[bank_area]" id="bank_area" type="text"
+                       class="login-input validate-length   required-entry  " title="Bank name"/>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn-soloyo" id="btn-register-designer">Đăng ký</button>
+    </form>
+
+</div>
+
+

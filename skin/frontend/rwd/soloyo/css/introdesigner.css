@@ -1,0 +1,89 @@
+@media (max-width: 1023px) {
+    .intro-banner a{
+        left: 40% !important;
+        font-size: 10px !important;
+        padding: 5px 20px !important;
+    }
+}
+.intro-body {
+    margin-top: 40px;
+}
+
+.intro-banner{
+    position: relative;
+
+}
+
+.intro-banner a{
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: vietnam_font;
+    background-color: #0bb5a2;
+    color: #ffffff !important;
+    padding: 10px 60px;
+    border-radius: 22px;
+
+
+    border: solid 1px #0bb5a2;
+
+}
+
+.intro-banner a:hover{
+    text-decoration: none;
+}
+
+.intro-banner img {
+    width: 100%;
+}
+
+.banner-row-designer {
+    width: 100%;
+}
+
+.h2-tittle {
+    color: #2d2d2d;
+    font-family: vietnam_font;
+}
+
+.title {
+    color: #0bb5a2;
+    margin-top: 10px;
+    font-family: vietnam_font;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.detail {
+    margin-top: 5px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: normal;
+    color: #2d2d2d;
+}
+
+.design-now {
+    width: 100%;
+    margin-top: 40px;
+
+}
+
+.design-now a {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: vietnam_font;
+    background-color: #0bb5a2;
+    color: #ffffff !important;
+    padding: 10px 60px;
+    border-radius: 22px;
+    margin-right: 20px;
+    float: right;
+    border: solid 1px #0bb5a2;
+}
+
+.design-now a:hover{
+    text-decoration: none;
+}

@@ -1,0 +1,109 @@
+<?php
+
+$designer_id = $this->getCurrentDesignerId();
+
+$product_upload = $this->getCurrentDesign();
+
+$productupload_id = $product_upload->getId();
+
+$design_url = $this->getUrl('*/*/design',array('_secure' => true));
+$demo_design_url = $this->getUrl('productupload/index/download_demo',array('_secure'=>true));
+
+$status = $product_upload->getStatus();
+
+?>
+
+<h1>Tạo mới thiết kế cho ốp lưng</h1>
+<div>
+    <div class="button-container col-md-12">
+        <button class="btn-save-new-design-disable" id="btn-save-new-design">Update</button>
+        <button id="btn-cancel-design">Cancel</button>
+        <?php if($status != 1): ?>
+            <button id="btn-delete-design">Delete</button>
+        <?php endif; ?>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <span id="message"></span>
+        </div>
+    </div>
+
+    <div >
+        <form action="<?php echo $this->getUpdateDesignUrl() ?>" method="post" id="form-new-design"
+              class="scaffold-form"
+              enctype="multipart/form-data">
+
+            <input type="hidden" name="form_key"
+                   value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+
+            <input type="hidden" name="designer_id" value="<?php echo $designer_id ?>"/>
+
+            <?php if ($productupload_id): ?>
+                <input type="hidden" name="productupload_id" value="<?php echo $productupload_id ?>"/>
+            <?php endif; ?>
+
+            <?php if($status == 2 || $status == 3): ?>
+
+                <div class="row new-design-row">
+                    <h5>Tin nhắn từ Admin</h5>
+                    <span>
+                    <?php echo $product_upload->getAdminComment(); ?>
+                </span>
+                </div>
+
+            <?php endif;?>
+
+            <div class="row new-design-row">
+                <h5>Miêu tả về thiết kế</h5>
+                <span style="font-family: vietnam_font; font-size: 10px;">(Bạn có thể bỏ trống phần này. Các thiết kế có sẵn phần miêu tả sẽ được duyệt nhanh hơn)</span>
+                <textarea name="description" id="description" cols="30" rows="10" >
+
+                    <?php echo $product_upload->getDescription()?>
+                </textarea>
+            </div>
+
+            <div class="row new-design-row">
+                <div class="col-md-6">
+                    <h5>Ảnh mockup cho sản phẩm</h5>
+                    <div>
+                        <span>Kích thước file: 500x500px hoặc 1000 x 1000 px</span>
+                        <input style="margin-top: 10px;" type="file" name="image_product" id="image_product-design">
+                        <img src="" alt="image_product-preview" id="image_product-preview"
+                             style="height: 80px; display: none">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Ảnh để in ấn</h5>
+                    <div>
+                        <span>Hệ màu: CMYK, solution: 300dpi, định dạng file: pdf</span>
+                        <br/>
+                        <a href="<?php echo $demo_design_url; ?>">Xem mẫu</a>
+                        <input style="margin-top: 10px;" type="file" name="image_print" id="image_print-design" accept="application/pdf">
+                        <embed src="" alt="image_product-preview" id="image_print-preview"
+                               style="height: 80px; display: none"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+    var design_url = '<?php echo $design_url; ?>';
+    var productupload_id = '<?php echo $productupload_id ?>';
+    var deleteDesign_url = '<?php echo Mage::getUrl('productupload/designer/deleteDesign',array('_secure'=>true)).'?productupload_id='.$productupload_id ?>'
+</script>
+
+
+
+

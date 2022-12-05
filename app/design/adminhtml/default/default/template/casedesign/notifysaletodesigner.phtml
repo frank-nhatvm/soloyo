@@ -1,0 +1,19 @@
+<?php
+
+$email_data = $this->getData('custom_designer_data');
+$designer_name = $email_data['designer_name'];
+$product_name = $email_data['product_name'];
+$dashboard_url = Mage::getUrl('productupload/designer/index', array('_secure' => true));;
+
+
+?>
+
+<div>
+    <span>Xin chào <?php echo $designer_name?></span>
+    <br/>
+    <span>
+        Soloyo xin thông báo, thiết kế <?php echo $product_name ?> vừa được bán thành công.
+    </span>
+    <br/>
+    <span>Hãy truy cập </span> <a href="<?php echo $dashboard_url ?>"> tài khoản của bạn </a> để xem số dư.</span>
+</div>

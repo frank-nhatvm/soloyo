@@ -1,0 +1,42 @@
+<?php
+$list_ranks = $this->getCollection();
+
+?>
+
+<?php if ($list_ranks && count($list_ranks)): ?>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Designer</th>
+            <th>Số tiền đã kiếm</th>
+            <th>Số tiền đã rút</th>
+            <th>Các thiết kế</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($list_ranks as $designer) : ?>
+            <tr>
+
+                <td><?php echo $this->getDesignerName($designer->getUserId()) ?></td>
+                <td>
+                    <?php echo $designer->getTotalBalance(); ?>
+
+                <td>
+                    <?php echo $this->getDrawn($designer) ?></td>
+                <td>
+                    <a href="<?php echo $this->getUrlOfDesigner($designer->getId()) ?>">Xem</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
+<?php else: ?>
+
+    <div class="empty">
+        <span>Comming Soon</span>
+    </div>
+
+<?php endif; ?>

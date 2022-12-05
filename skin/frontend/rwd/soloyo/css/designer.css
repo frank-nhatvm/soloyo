@@ -1,0 +1,330 @@
+
+#designer-tab-ul li{
+    border-left: solid 1px  #f2f3f5;
+    border-top: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+    background: #f2f3f5;
+    padding: 15px 20px;
+    cursor: pointer;
+
+}
+
+#designer-tab-ul a:hover{
+    text-decoration: none;
+}
+
+
+.designer-tab-last{
+    border-bottom: solid 1px #f2f3f5 !important;
+    border-left: solid 1px #f2f3f5 !important;
+    border-right: solid 1px #f2f3f5;
+}
+
+.designer-tab-current{
+    background: #ffffff !important;
+    border-right:  none !important;
+
+}
+
+
+.registered-designer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#btn-register-designer {
+    float: right;
+    margin: 10px 10px;
+}
+
+.container-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* start new mockup*/
+.btn-save-new-mockup-disable{
+    border: solid 1px #f2f3f5 !important;
+    background: #f2f3f5 !important;
+    color: #ffffff !important;
+}
+
+#btn-cancel-mockup{
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    color: #5b5b5b;
+}
+
+#btn-save-new-mockup{
+    margin-left: 10px;
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    background: #0bb5a2;
+    color: #ffffff;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* end new mockup*/
+
+#btn-delete-design{
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    margin-right: 10px;
+    background: #FF4500;
+    color: #ffffff;
+}
+
+.btn-delete-design-disable{
+    border: solid 1px #f2f3f5 !important;
+    background: #f2f3f5 !important;
+    color: #ffffff !important;
+}
+
+#btn-cancel {
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    color: #5b5b5b;
+}
+
+#btn-update {
+    margin-left: 10px;
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    background: #0bb5a2;
+    color: #ffffff;
+}
+
+#btn-edit {
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    color: #0bb5a2;
+}
+
+#btn-save-new-design{
+    margin-left: 10px;
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    background: #0bb5a2;
+    color: #ffffff;
+}
+
+.btn-save-new-design-disable{
+    border: solid 1px #f2f3f5 !important;
+    background: #f2f3f5 !important;
+    color: #ffffff !important;
+}
+
+#btn-cancel-design{
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    color: #5b5b5b;
+}
+
+#btn-new-design{
+    margin-left: 10px;
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    background: #0bb5a2;
+    color: #ffffff;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.table{
+    margin-top: 50px;
+}
+
+#cate-select{
+    margin-top: 10px;
+}
+
+#new-cate-design{
+    margin-top: 10px;
+}
+
+.image-cate-design-container{
+    margin-top: 10px;
+}
+
+.body-image-cate-design-container{
+    margin-top: 5px;
+}
+
+#image-cate-design-preview{
+    border: solid 1px #f2f3f5;
+}
+
+.body-category{
+    margin-left: 20px;
+}
+
+.category{
+    padding-bottom: 20px;
+
+    border: solid 1px #cacaca;
+    border-radius: 6px;
+}
+
+.product-case-design{
+    border: solid 1px #cacaca;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body-product-case-design{
+    margin-left: 20px;
+}
+
+.new-design-row{
+    margin-top: 20px;
+}
+
+.sale-price{
+    padding-bottom: 20px;
+    margin-top: 20px;
+    border: solid 1px #cacaca;
+    border-radius: 6px;
+}
+
+.balance-amount-container{
+
+}
+
+.draw-request-containter{
+    margin-top: 10px;
+}
+
+.draw-request-containter input[type=number]{
+    border-radius: 8px !important;
+    border: 1px solid #0bb5a2 !important;
+    background: #ffffff !important;
+}
+
+.draw-request-containter input[type=text]{
+    border-radius: 8px !important;
+    border: 1px solid #0bb5a2 !important;
+    background: #ffffff !important;
+}
+
+.draw-amount-amount{
+    padding-left: 0px !important;
+
+}
+
+.draw-amount-comment{
+
+}
+
+.draw-amount-button{
+    margin-top: 20px;
+}
+
+.transaction-history{
+    margin-top: 30px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.transaction-history table{
+    margin-top: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
+
+#btn-send-draw-request{
+    margin-left: 10px;
+    float: right;
+    min-height: 34px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    min-width: 80px;
+    border: solid 1px #0bb5a2;
+    background: #0bb5a2;
+    color: #ffffff;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+}
+
+.balance-designer{
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 500;
+    color: #0bb5a2;
+
+}
+
+.balance-designer-label{
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2d2d2d;
+}
+
+.draw-request-containter span{
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2d2d2d;
+}

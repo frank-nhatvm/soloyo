@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <!-- update layout for all frontend page -->
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </default>
+    <brandmodel_index_index>
+        <reference name="head">
+            <action method="addJs"><script>soloyo/brandmodel.js</script></action>
+            <action method="addItem"><type>skin_css</type><name>css/brandmodel.css</name></action>
+        </reference>
+
+        <reference name="content">
+
+            <block type="brandmodel/brandmodel" name="brandmodel" template="brandmodel/brandmodel.phtml" />
+        </reference>
+    </brandmodel_index_index>
+
+    <brandmodel_index_requestbrand>
+        <reference name="head">
+            <action method="addJs"><script>soloyo/requestbrand.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="brandmodel/requestbrand" name="requestbrand" template="brandmodel/requestbrand.phtml" />
+        </reference>
+    </brandmodel_index_requestbrand>
+
+</layout>

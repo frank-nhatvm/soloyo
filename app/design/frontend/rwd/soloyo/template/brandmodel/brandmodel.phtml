@@ -1,0 +1,69 @@
+
+<div class="row">
+    <h1>Tìm nhanh</h1>
+</div>
+
+<div class="brandmodel-main col-md-6 col-md-offset-3">
+
+    <div class="brandmodel-title row">
+        <div >
+            <div id="sp-brandmodel-title1">VUI LÒNG CHỌN HÃNG VÀ LOẠI ĐIỆN THOẠI</div>
+            <div id="sp-brandmodel-title2"> ĐỂ XEM CÁC ỐP PHÙ HỢP NHẤT</div>
+        </div>
+    </div>
+
+
+    <div class="brandmodel-container ">
+        <div class="row cRow">
+            <div class="label-row">
+                <span>Hãng điện thoại</span>
+            </div>
+
+            <div class="custom-select-container ">
+                <input type="hidden" name="brand_mobile" id="brand-mobile-input"
+                       value=""/>
+                <div class="custom-select" id="brand-mobile" onclick="select_brand()">
+                    <span type="text" class="custom-select-content">Lựa chọn một hãng điện thoại</span>
+                    <i class="material-icons md-24 ">arrow_drop_down</i>
+                </div>
+                <div class="custom-select-option box-shadow-class" id="brand-mobile-value" style="display: none">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row cRow" id="model-main"  style="display: none">
+            <div class="label-row">
+                <span>Dòng điện thoại</span>
+            </div>
+
+            <div class="custom-select-container ">
+                <input type="hidden" name="model_mobile" id="model-mobile-input"
+                       value=""/>
+                <div class="custom-select" id="model-mobile" onclick="select_mobile()">
+                    <span type="text" class="custom-select-content">Lựa chọn một dòng điện thoại</span>
+                    <i class="material-icons md-24 ">arrow_drop_down</i>
+                </div>
+                <div class="custom-select-option box-shadow-class" id="model-mobile-value"
+                     style="display: none">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class=" div-btn-view-case" style="display: none">
+        <button id="btn-view-case" onclick="open_cat()">Xem ốp cho Apple iPhone X</button>
+    </div>
+</div>
+
+<script>
+    var cat_url = '<?php echo $this->getCurrentCatUrl(); ?>';
+    var cate_id = '<?php echo $this->getCurrentCatId(); ?>';
+    var current_url = '<?php echo $this->getUrl('*/*/', array('_secure' => true)) ?>';
+    var open_cate_url = '<?php echo $this->getUrl('*/*/openCate', array('_secure' => true)) ?>';
+</script>
+

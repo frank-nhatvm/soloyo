@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <printeradmin_adminhtml_printer_index>
+        <reference name="content">
+            <block type="printer/adminhtml_printer" name="printer" />
+        </reference>
+    </printeradmin_adminhtml_printer_index>
+</layout>

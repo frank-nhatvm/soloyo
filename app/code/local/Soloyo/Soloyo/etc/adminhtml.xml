@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <soloyo module="soloyo" translate="title">
+            <title>Soloyo</title>
+            <sort_order>71</sort_order>
+            <children>
+                <home module="soloyo" translate="title">
+                    <title>Manage Home</title>
+                    <sort_order>0</sort_order>
+                    <children>
+                        <homebanner module="soloyo" translate="title">
+                            <title>Manage Banner</title>
+                            <sort_order>0</sort_order>
+                            <action>soloyoadmin/adminhtml_banner</action>
+                        </homebanner>
+
+                        <homecate module="soloyo" translate="title">
+                            <title>Manage Category</title>
+                            <sort_order>10</sort_order>
+                            <action>soloyoadmin/adminhtml_cate</action>
+                        </homecate>
+
+                        <homeproducts module="soloyo" translate="title">
+                            <title>Manage Product list</title>
+                            <sort_order>20</sort_order>
+                            <action>soloyoadmin/adminhtml_products</action>
+                        </homeproducts>
+
+                        <homeitem module="soloyo" translate="title">
+                            <title>Manage Home Item</title>
+                            <sort_order>30</sort_order>
+                            <action>soloyoadmin/adminhtml_item</action>
+                        </homeitem>
+                        <settings module="menutop" translate="title">
+                            <title>Settings</title>
+                            <sort_order>1000</sort_order>
+                            <action>adminhtml/system_config/edit/section/soloyo</action>
+                        </settings>
+                    </children>
+                </home>
+
+                <brandmodel module="brandmodel" translate="title">
+                    <title>Manage Brand Model</title>
+                    <sort_order>1</sort_order>
+
+                    <children>
+                        <brandmobile module="brandmodel" translate="title">
+                            <title>Manage Brand</title>
+                            <sort_order>0</sort_order>
+                            <action>brandmodeladmin/adminhtml_brandmobile</action>
+                        </brandmobile>
+                        <modelmobile module="brandmodel" translate="title">
+                            <title>Manage Model</title>
+                            <sort_order>1000</sort_order>
+                            <action>brandmodeladmin/adminhtml_modelmobile</action>
+                        </modelmobile>
+
+                        <requestbrand module="brandmodel" translate="title">
+                            <title>Manage Request Brand</title>
+                            <sort_order>2000</sort_order>
+                            <action>brandmodeladmin/adminhtml_requestbrand</action>
+                        </requestbrand>
+                    </children>
+
+                </brandmodel>
+
+                <casedesign module="casedesign" translate="title">
+                    <title>Manage Design Product</title>
+                    <sort_order>20</sort_order>
+                    <action>casedesignadmin/adminhtml_casedesign</action>
+                </casedesign>
+
+                <caseorder module="casedesign" translate="title">
+                    <title>Manage Order</title>
+                    <sort_order>30</sort_order>
+                    <action>casedesignadmin/adminhtml_caseorder</action>
+                </caseorder>
+
+                <diachigiaohang module="diachigiaohang" translate="title">
+                    <title>Diachigiaohang</title>
+                    <sort_order>40</sort_order>
+                    <children>
+                        <tinhthanh module="diachigiaohang" translate="title">
+                            <title>Quan ly tinh thanh</title>
+                            <sort_order>0</sort_order>
+                            <action>diachigiaohangadmin/adminhtml_tinhthanh</action>
+                        </tinhthanh>
+                        <quanhuyen module="diachigiaohang" translate="title">
+                            <title>Quan ly quan huyen</title>
+                            <sort_order>1</sort_order>
+                            <action>diachigiaohangadmin/adminhtml_quanhuyen</action>
+                        </quanhuyen>
+                        <xaphuong module="diachigiaohang" translate="title">
+                            <title>Quan ly xa phuong</title>
+                            <sort_order>2</sort_order>
+                            <action>diachigiaohangadmin/adminhtml_xaphuong</action>
+                        </xaphuong>
+
+                    </children>
+                </diachigiaohang>
+
+                <menutop module="menutop" translate="title">
+                    <title>Manage Menu Top Items</title>
+                    <sort_order>50</sort_order>
+                    <action>menutopadmin/adminhtml_menutop</action>
+                </menutop>
+
+                <imageprint module="productupload" translate="title">
+                    <title>Manage Image Print</title>
+                    <sort_order>60</sort_order>
+                    <action>productuploadadmin/adminhtml_imageprint</action>
+                </imageprint>
+
+                <productupload module="productupload" translate="title">
+                    <title>Productupload</title>
+                    <sort_order>70</sort_order>
+                    <children>
+                        <productupload module="productupload" translate="title">
+                            <title>Manage Product upload</title>
+                            <sort_order>0</sort_order>
+                            <action>productuploadadmin/adminhtml_productupload</action>
+                        </productupload>
+                        <designer module="productupload" translate="title">
+                            <title>Manage Designer</title>
+                            <sort_order>10</sort_order>
+                            <action>productuploadadmin/adminhtml_designer</action>
+                        </designer>
+                        <transaction module="productupload" translate="title">
+                            <title>Manage Transaction</title>
+                            <sort_order>20</sort_order>
+                            <action>productuploadadmin/adminhtml_transaction</action>
+                        </transaction>
+                        <requestproduct module="productupload" translate="title">
+                            <title>Manage Request Product</title>
+                            <sort_order>30</sort_order>
+                            <action>productuploadadmin/adminhtml_requestproduct</action>
+                        </requestproduct>
+                        <mockup module="productupload" translate="title">
+                            <title>Manage Mockup</title>
+                            <sort_order>40</sort_order>
+                            <action>productuploadadmin/adminhtml_mockup</action>
+                        </mockup>
+                        <settings module="productupload" translate="title">
+                            <title>Settings</title>
+                            <sort_order>1000</sort_order>
+                            <action>adminhtml/system_config/edit/section/productupload</action>
+                        </settings>
+                    </children>
+                </productupload>
+
+                <printer module="printer" translate="title">
+                    <title>Manage Printer</title>
+                    <sort_order>80</sort_order>
+                    <action>printeradmin/adminhtml_printer</action>
+                </printer>
+
+            </children>
+        </soloyo>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <soloyo module="soloyo" translate="title">
+                                        <title>Soloyo</title>
+                                        <sort_order>71</sort_order>
+                                    </soloyo>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <soloyo module="soloyo" translate="title">
+                        <title>Soloyo</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <home module="soloyo" translate="title">
+                                <title>Manage Home</title>
+                                <sort_order>0</sort_order>
+                                <children>
+
+                                    <homebanner module="soloyo" translate="title">
+                                        <title>Manage Banner</title>
+                                        <sort_order>0</sort_order>
+
+                                    </homebanner>
+
+                                    <homecate module="soloyo" translate="title">
+                                        <title>Manage Category</title>
+                                        <sort_order>10</sort_order>
+
+                                    </homecate>
+
+                                    <homeproducts module="soloyo" translate="title">
+                                        <title>Manage Product list</title>
+                                        <sort_order>20</sort_order>
+
+                                    </homeproducts>
+
+                                    <homeitem module="soloyo" translate="title">
+                                        <title>Manage Home Item</title>
+                                        <sort_order>30</sort_order>
+
+                                    </homeitem>
+
+                                </children>
+                            </home>
+                            <brandmodel module="brandmodel" translate="title">
+                                <title>Manage Brand Model</title>
+                                <sort_order>1</sort_order>
+
+                                <children>
+                                    <brandmobile module="brandmodel" translate="title">
+                                        <title>Manage Brand</title>
+                                        <sort_order>0</sort_order>
+
+                                    </brandmobile>
+                                    <modelmobile module="brandmodel" translate="title">
+                                        <title>Manage Model</title>
+                                        <sort_order>1000</sort_order>
+
+                                    </modelmobile>
+                                </children>
+
+                            </brandmodel>
+
+                            <casedesign module="casedesign" translate="title">
+                                <title>Manage Design Product</title>
+                                <sort_order>2</sort_order>
+
+                            </casedesign>
+
+                            <caseorder module="casedesign" translate="title">
+                                <title>Manage Order</title>
+                                <sort_order>3</sort_order>
+
+                            </caseorder>
+
+                            <diachigiaohang module="diachigiaohang" translate="title">
+                                <title>Diachigiaohang</title>
+                                <sort_order>40</sort_order>
+                                <children>
+                                    <tinhthanh module="diachigiaohang" translate="title">
+                                        <title>Quan ly tinh thanh</title>
+                                        <sort_order>0</sort_order>
+
+                                    </tinhthanh>
+                                    <quanhuyen module="diachigiaohang" translate="title">
+                                        <title>Quan ly quan huyen</title>
+                                        <sort_order>1</sort_order>
+
+                                    </quanhuyen>
+                                    <xaphuong module="diachigiaohang" translate="title">
+                                        <title>Quan ly xa phuong</title>
+                                        <sort_order>2</sort_order>
+
+                                    </xaphuong>
+
+                                </children>
+                            </diachigiaohang>
+
+                            <menutop module="menutop" translate="title">
+                                <title>Manage Menu Top Items</title>
+                                <sort_order>50</sort_order>
+
+                            </menutop>
+
+                            <imageprint module="productupload" translate="title">
+                                <title>Manage Image Print</title>
+                                <sort_order>60</sort_order>
+
+                            </imageprint>
+
+                            <productupload module="productupload" translate="title">
+                                <title>Productupload</title>
+                                <sort_order>70</sort_order>
+                                <children>
+                                    <productupload module="productupload" translate="title">
+                                        <title>Manage Product upload</title>
+                                        <sort_order>0</sort_order>
+
+                                    </productupload>
+                                    <designer module="productupload" translate="title">
+                                        <title>Manage Designer</title>
+                                        <sort_order>10</sort_order>
+
+                                    </designer>
+                                    <transaction module="productupload" translate="title">
+                                        <title>Manage Transaction</title>
+                                        <sort_order>20</sort_order>
+
+                                    </transaction>
+                                    <requestproduct module="productupload" translate="title">
+                                        <title>Manage Request Product</title>
+                                        <sort_order>30</sort_order>
+
+                                    </requestproduct>
+
+                                    <mockup module="productupload" translate="title">
+                                        <title>Manage Mockup</title>
+                                        <sort_order>40</sort_order>
+
+                                    </mockup>
+                                    <settings module="productupload" translate="title">
+                                        <title>Settings</title>
+                                        <sort_order>1000</sort_order>
+
+                                    </settings>
+                                </children>
+                            </productupload>
+                            <printer module="printer" translate="title">
+                                <title>Manage Printer</title>
+                                <sort_order>80</sort_order>
+
+                            </printer>
+                        </children>
+
+
+                    </soloyo>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

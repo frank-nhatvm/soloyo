@@ -1,0 +1,87 @@
+<?php
+$bottomtag = Mage::getStoreConfig('soloyo/general/bottomtag');
+if ($bottomtag) {
+    $list_tags = explode(', ', $bottomtag);
+}
+
+?>
+<div class="footer-main">
+
+
+    <div class="row footer-body">
+
+        <div class=" col-md-3 col-md-offset-1">
+            <div class="label-contact" style="margin-top: 10px;">
+                <span >Kiếm tiền cùng Soloyo</span>
+            </div>
+            <div class="designer-pro" style="margin-top: 10px">
+                <a style="color: #0bb5a2" href="<?php echo Mage::getUrl('productupload/designer/intro') ?>">
+                    Chương trình cho Designer.
+                </a>
+            </div>
+
+            <div class="reseller-pro  " style="margin-top: 10px;">
+                <a href="#" style="color: #0bb5a2">
+                    Tham gia đội ngũ cộng tác viên bán hàng
+                </a>
+            </div>
+        </div>
+
+        <div class=" col-md-3 col-md-offset-1">
+            <div class="label-contact" style="margin-top: 10px;">
+                <span >Liên hệ với chúng tôi</span>
+            </div>
+
+            <div style="margin-top: 10px;color: #0bb5a2">
+                <i class="fab fa-facebook-messenger"></i>
+                <span style="margin-left: 5px">Messenger: </span><a
+                        rel="nofollow"  href="http://m.me/soloyo.vn">m.me/soloyo.vn</a>
+            </div>
+
+            <div class="fanpage" style="margin-top: 10px;color: #0bb5a2">
+                <i class="fab fa-facebook"></i> <span style="margin-left: 5px">Fanpage: </span><a style="color: #0bb5a2"
+                                                                                                  rel="nofollow"   href="https://www.facebook.com/soloyo.vn">facebook.com/soloyo</a>
+            </div>
+
+            <div style="margin-top: 10px;color: #0bb5a2">
+                <i class="fas fa-phone"></i>
+                <span style="margin-left: 5px">Hotline: </span>
+                <span>0356096812</span>
+            </div>
+
+        </div>
+
+        <div class=" col-md-3 col-md-offset-1">
+
+            <div style="margin-top: 10px">
+
+                <a style="color: #0bb5a2"
+                   href="https://soloyo.vn/blog/">Blog</a>
+            </div>
+            <div style="margin-top: 10px">
+
+                <a style="color: #0bb5a2"
+                   href="#">Về chúng tôi</a>
+            </div>
+            <div style="margin-top: 10px">
+
+                <a style="color: #0bb5a2"
+                   href="#">Chính sách đổi trả</a>
+            </div>
+
+     </div>
+
+
+    </div>
+
+    <?php if ($list_tags && count($list_tags)): ?>
+        <div class="container-bottom-tag">
+            <?php foreach ($list_tags as $tag): ?>
+                <span class="bottom-tag"><?php echo $tag.'/ '; ?></span>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <div class="container-copyright">
+        <address><?php echo $this->getCopyright() ?></address>
+    </div>
+</div>

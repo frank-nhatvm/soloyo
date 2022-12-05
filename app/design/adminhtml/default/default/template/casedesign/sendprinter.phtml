@@ -1,0 +1,107 @@
+<?php
+
+$email_custom_data = $this->getData('email_custom_data');
+$printer_id = $email_custom_data['printer_id'];
+$caseorder_ids = $email_custom_data['caseorder_ids'];
+$list_caseorder_ids = explode(', ', $caseorder_ids);
+$data = array();
+$download_url = Mage::getUrl('productupload/index/download',array('_secure'=>true));
+foreach ($list_caseorder_ids as $caseorder_id) {
+    if($caseorder_id) {
+        $case_order_model = Mage::getModel('casedesign/caseorder')->load($caseorder_id);
+        if ($case_order_model && $case_order_model->getId()) {
+            $item_data = array();
+            $order_id = $case_order_model->getOrderId();
+            $order = Mage::getModel('sales/order')->load($order_id);
+            $real_order_id = $order->getIncrementId();
+            $item_data['order_id'] = $real_order_id;
+
+            $order_items = array();
+            $collection = Mage::getModel('casedesign/caseorderitem')
+                ->getCollection()->addFieldToFilter('caseorder_id', $caseorder_id);
+            foreach ($collection as $item_order) {
+                $item = array();
+
+                if ($item_order->getContentDesign()) {
+                    $is_customer_design = '1';
+                } else {
+                    $is_customer_design = '0';
+                }
+                $design_path = $item_order->getDesignImage();
+                $link_download = $download_url.'?printer_id='.$printer_id.'&is_customer_design='.$is_customer_design.'&image_path='.$design_path;
+
+
+                $item['link_image'] = $link_download;
+                $product_id = $item_order->getProductId();
+                $product = Mage::getModel('catalog/product')->load($item_order->getProductId());
+                $item['product_name'] = $product->getName() . '- ID: ' . $product_id;
+
+                $brand = $product->getData('brand');
+                $brand_model_id = $product->getData('brand_model');
+
+                $brand_model = Mage::getModel('brandmodel/brandmobile')->getCollection()
+                    ->addFieldToFilter('brand_attribute_id', $brand)->getFirstItem();
+                $brand_name = $brand_model->getBrandName();
+
+                $brandmobile_model = Mage::getModel('brandmodel/modelmobile')->getCollection()
+                    ->addFieldToFilter('brand_model_attribute_id', $brand_model_id)->getFirstItem();
+                $model_name = $brandmobile_model->getModelName();
+
+                $item['brand_model'] = $brand_name . ' ' . $model_name;
+
+                $item['qty_ordered'] = $item_order->getQtyOrdered();
+                $item['options'] = $item_order->getOptions();
+
+                $order_items[] = $item;
+            }
+            $item_data['order_items'] = $order_items;
+            $data[] = $item_data;
+        }
+    }
+}
+
+?>
+
+<div style="width: 80%">
+
+    <?php foreach ($data as $item_data): ?>
+        <div style="border: solid 1px #f2f3f5; margin-bottom: 20px">
+            <div style="padding: 10px 10px;background: #cacaca">
+                <span>Mã đơn hàng </span> <span style="font-weight: bold; font-size: 18px"><?php echo $item_data['order_id']; ?></span>
+            </div>
+
+            <table style="width:100%">
+                <tr>
+
+                    <th style="  border-top: solid 1px #f2f3f5;  border-right: solid 1px #f2f3f5;padding: 10px 10px" >Tên sản phẩm</th>
+                    <th style="  border-top: solid 1px #f2f3f5;  border-right: solid 1px #f2f3f5;padding: 10px 10px" >Dòng máy</th>
+                    <th style="  border-top: solid 1px #f2f3f5;  border-right: solid 1px #f2f3f5;padding: 10px 10px" >Số lượng cần in</th>
+                    <th style="  border-top: solid 1px #f2f3f5;  border-right: solid 1px #f2f3f5;padding: 10px 10px" >Chất liệu ốp</th>
+
+                    <th style="border-top: solid 1px #f2f3f5; padding: 10px 10px" >Link ảnh để in</th>
+                </tr>
+                <?php foreach ($item_data['order_items'] as $order_item) : ?>
+                    <tr style="border: solid 1px">
+                        <td style="    border-right: solid 1px #f2f3f5;border-top: solid 1px #f2f3f5;padding: 10px 10px" >
+                            <span> <?php echo $order_item['product_name'] ?> </span>
+                        </td>
+                        <td style="    border-right: solid 1px #f2f3f5;border-top: solid 1px #f2f3f5;padding: 10px 10px" >
+                            <span> <?php echo $order_item['brand_model'] ?> </span>
+                        </td>
+                        <td style="    border-right: solid 1px #f2f3f5;border-top: solid 1px #f2f3f5;padding: 10px 10px" >
+                            <span> <?php echo $order_item['qty_ordered'] ?> </span>
+                        </td>
+                        <td style="    border-right: solid 1px #f2f3f5;border-top: solid 1px #f2f3f5;padding: 10px 10px" >
+                            <span> <?php echo $order_item['options'] ?> </span>
+                        </td>
+                        <td style="border-top: solid 1px #f2f3f5;padding: 10px 10px">
+                            <a href="<?php echo $order_item['link_image'] ?>"> Download</a>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+            </table>
+        </div>
+    <?php endforeach; ?>
+
+</div>

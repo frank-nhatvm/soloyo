@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <casedesignadmin_adminhtml_caseart_index>
+        <reference name="content">
+            <block type="casedesign/adminhtml_caseart" name="caseart" />
+        </reference>
+    </casedesignadmin_adminhtml_caseart_index>
+
+    <casedesignadmin_adminhtml_casecolor_index>
+        <reference name="content">
+            <block type="casedesign/adminhtml_casecolor" name="casecolor" />
+        </reference>
+    </casedesignadmin_adminhtml_casecolor_index>
+
+
+    <casedesignadmin_adminhtml_casedesign_index>
+
+
+        <reference name="content">
+            <block type="casedesign/adminhtml_casedesign" name="casedesign" />
+        </reference>
+    </casedesignadmin_adminhtml_casedesign_index>
+
+    <casedesignadmin_adminhtml_casefont_index>
+        <reference name="content">
+            <block type="casedesign/adminhtml_casefont" name="casefont" />
+        </reference>
+    </casedesignadmin_adminhtml_casefont_index>
+
+    <casedesignadmin_adminhtml_caseorder_index>
+        <reference name="content">
+            <block type="casedesign/adminhtml_caseorder" name="caseorder" />
+        </reference>
+    </casedesignadmin_adminhtml_caseorder_index>
+
+    <casedesignadmin_adminhtml_caseorder_orderitems>
+        <block type="core/text_list" name="root">
+            <block type="casedesign/adminhtml_caseorder_edit_tab_orderitems" name="casedesign.adminhtml.caseorder.edit.tab.orderitems" />
+        </block>
+    </casedesignadmin_adminhtml_caseorder_orderitems>
+
+</layout>

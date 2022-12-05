@@ -1,0 +1,124 @@
+<?php
+$case_design_data = $this->getCaseDesignData();
+$product_id     = $this->getRequest()->getParam('id');
+$casedesign_id = '';
+if($case_design_data &&  $case_design_data['casedesign_id']){
+    $casedesign_id = $case_design_data['casedesign_id'];
+}
+$scale = 0.5;
+
+$design_area_width = 100;
+
+if($case_design_data && $case_design_data['design_area_width']){
+    $design_area_width = $case_design_data['design_area_width'];
+}
+
+$design_area_height = 100;
+
+if($case_design_data && $case_design_data['design_area_height']){
+    $design_area_height = $case_design_data['design_area_height'];
+}
+
+$design_area_left = 0;
+if($case_design_data && $case_design_data['design_area_left']){
+    $design_area_left = $case_design_data['design_area_left'];
+}
+
+$design_area_top = 0;
+if($case_design_data && $case_design_data['design_area_top']){
+    $design_area_top = $case_design_data['design_area_top'];
+}
+
+$path = Mage::helper('casedesign')->getUrlPathCasedesignTemplate($product_id);
+
+$overlay_image = '';
+if($case_design_data && $case_design_data['overlay_image']){
+    $overlay_image = $path.$case_design_data['overlay_image'];
+}
+
+$background_image = '';
+if($case_design_data && $case_design_data['background_image']){
+    $background_image = $path.$case_design_data['background_image'];
+}
+
+
+$product = Mage::getModel('catalog/product')->load($product_id);
+
+?>
+
+<script>
+    var scale = '<?php echo $scale; ?>';
+    var
+</script>
+
+<div>
+    <h2><?php echo $product->getName(); ?></h2>
+</div>
+
+
+<input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+<input type="hidden" name="casedesign_id" value="<?php echo $casedesign_id; ?>">
+
+<div>
+    <label for="status">Status</label>
+    <select name="status" id="status">
+        <option  value="0">Disable</option>
+        <option <?php if($case_design_data && $case_design_data['status']) echo 'selected' ?> value="1">Enable</option>
+
+    </select>
+
+</div>
+
+<div>
+    <label for="overlay_image">Overlay image</label>
+    <input type="file" name="overlay_image" id="overlay_image" >
+    <?php if($overlay_image): ?>
+        <img src="<?php echo $overlay_image; ?>" alt="overlay-image" width="50px" >
+    <?php endif; ?>
+
+</div>
+
+<div>
+    <label for="background_image">Background image</label>
+    <input type="file" name="background_image" id="background_image" >
+    <?php if($background_image): ?>
+        <img src="<?php echo $background_image; ?>" alt="background-image" width="50px" >
+    <?php endif; ?>
+</div>
+
+<div class="design-area-container">
+
+    <div class="left-design-area" style="overflow: hidden; width: 70%;float: left;  border: solid 1px grey;position: relative;padding-top: 10px; padding-bottom: 10px">
+
+        <div class="design-area" style="width: <?php echo $design_area_width.'px'  ?> ;height: <?php echo $design_area_height.'px' ?>; border: solid 1px deepskyblue;z-index: 1000;position: absolute; top : <?php echo $design_area_top.'px' ?>; left:<?php echo $design_area_left.'px' ?>">
+
+
+        </div>
+
+        <img src="<?php echo $overlay_image ?>" alt="img-overlay" id="img_overlay_design" style="margin-left: 20%;width: 50%;">
+
+    </div>
+
+    <div class="right-design-area" style="width: 20%; margin-left: 5%; float: left">
+
+        <div>
+            <label for="design_area_width"> Width</label> <input type="text" name="design_area_width" id="design_area_width" value="<?php echo $design_area_width?>">
+        </div>
+
+        <div>
+            <label for="design_area_height">Height</label> <input type="text" name="design_area_height" id="design_area_height" value="<?php echo $design_area_height ?>">
+        </div>
+
+        <div>
+            <label for="design_area_top">Top</label> <input type="text" name="design_area_top" id="design_area_top" value="<?php echo $design_area_top ?>">
+        </div>
+
+        <div>
+            <label for="design_area_left">Left</label> <input type="text" name="design_area_left" id="design_area_left" value="<?php echo $design_area_left ?>">
+        </div>
+
+    </div>
+</div>
+
+
+

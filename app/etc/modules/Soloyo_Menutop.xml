@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Soloyo_Menutop>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Soloyo_Menutop>
+    </modules>
+</config>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <campaign module="campaign" translate="title">
+            <title>Campaign</title>
+            <sort_order>71</sort_order>
+            <children>
+                <aff module="campaign" translate="title">
+                    <title>Manage Aff Player</title>
+                    <sort_order>0</sort_order>
+                    <action>campaignadmin/adminhtml_aff</action>
+                </aff>
+                <campaign module="campaign" translate="title">
+                    <title>Manage Campaign</title>
+                    <sort_order>100</sort_order>
+                    <action>campaignadmin/adminhtml_campaign</action>
+                </campaign>
+                <settings module="campaign" translate="title">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/campaign</action>
+                </settings>
+            </children>
+        </campaign>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <campaign module="campaign" translate="title">
+                                        <title>Campaign</title>
+                                        <sort_order>71</sort_order>
+                                    </campaign>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <campaign module="campaign" translate="title">
+                        <title>Campaign</title>
+                        <sort_order>71</sort_order>
+                        <children>
+                            <campaign module="campaign" translate="title">
+                                <title>Manage Items</title>
+                                <sort_order>0</sort_order>
+                            </campaign>
+                            <campaign module="campaign" translate="title">
+                                <title>Manage Campaign</title>
+                                <sort_order>100</sort_order>
+
+                            </campaign>
+                            <settings module="campaign" translate="title">
+                                <title>Settings</title>
+                                <sort_order>1000</sort_order>
+                            </settings>
+                        </children>
+                    </campaign>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

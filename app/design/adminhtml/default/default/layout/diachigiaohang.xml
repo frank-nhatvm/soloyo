@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+
+<layout version="0.1.0">
+    <diachigiaohangadmin_adminhtml_tinhthanh_index>
+        <reference name="content">
+            <block type="diachigiaohang/adminhtml_tinhthanh" name="tinhthanh" />
+        </reference>
+    </diachigiaohangadmin_adminhtml_tinhthanh_index>
+
+    <diachigiaohangadmin_adminhtml_quanhuyen_index>
+        <reference name="content">
+            <block type="diachigiaohang/adminhtml_quanhuyen" name="quanhuyen" />
+        </reference>
+    </diachigiaohangadmin_adminhtml_quanhuyen_index>
+
+
+    <diachigiaohangadmin_adminhtml_xaphuong_index>
+        <reference name="content">
+            <block type="diachigiaohang/adminhtml_xaphuong" name="xaphuong" />
+        </reference>
+    </diachigiaohangadmin_adminhtml_xaphuong_index>
+</layout>

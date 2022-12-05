@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category    Magestore
+ * @package     Magestore_Brandmodel
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+-->
+<layout version="0.1.0">
+
+    <brandmodeladmin_adminhtml_brandmobile_index>
+        <reference name="content">
+            <block type="brandmodel/adminhtml_brandmobile" name="brandmobile" />
+        </reference>
+    </brandmodeladmin_adminhtml_brandmobile_index>
+
+    <brandmodeladmin_adminhtml_modelmobile_index>
+        <reference name="content">
+            <block type="brandmodel/adminhtml_modelmobile" name="modelmobile" />
+        </reference>
+    </brandmodeladmin_adminhtml_modelmobile_index>
+
+
+    <brandmodeladmin_adminhtml_requestbrand_index>
+        <reference name="content">
+            <block type="brandmodel/adminhtml_requestbrand" name="requestbrand" />
+        </reference>
+    </brandmodeladmin_adminhtml_requestbrand_index>
+
+
+</layout>

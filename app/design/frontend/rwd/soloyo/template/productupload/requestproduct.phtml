@@ -1,0 +1,75 @@
+<?php
+
+$request_product_url = Mage::getUrl('productupload/index/requestproduct_post', array('_secure' => true));
+$is_logged_id = $this->isLoggedIn();
+?>
+
+
+<div class="row">
+    <h1>Yêu cầu cập nhật thiết kế cho điện thoại của tôi</h1>
+</div>
+
+<input id="designer_id" type="hidden" value="<?php echo $this->getDesignerId() ?>" name="designer_id">
+<input id="product_id" type="hidden" value="<?php echo $this->getProductId() ?>" name="product_id">
+<?php if ($is_logged_id) : ?>
+    <input id="user_id" type="hidden" value="<?php echo $this->getUserId() ?>" name="user_id">
+    <input id="email" type="hidden" value="<?php echo $this->getUserEmail() ?>" name="email">
+<?php else : ?>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <input class="required-entry validate-email" id="request-email" type="text" name="email"
+                   placeholder="Email">
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-6">
+            <input maxlength="11" minlength="9"
+                   class="validate-length maximum-length-11 minimum-length-9 validate-digits  required-entry validate-number"
+                   id="request-phone" type="text" name="phone" placeholder="Số điện thoại">
+        </div>
+    </div>
+
+<?php endif; ?>
+
+<div class="row" style="margin-top: 15px">
+    <div class="col-md-6">
+
+        <input id="request-requirement" type="area" name="requirement" placeholder="Yêu cầu của bạn.Ví dụ: Tôi muốn có thiết kế này cho điện thoại oppo f9"
+               style="width: 100%; min-height: 100px;">
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="col-md-6">
+
+        <div id="message-request">
+            <span></span>
+            <a style="display: none" href="<?php echo Mage::getBaseUrl(); ?>">Bấm vào đây để chuyển về trang chủ.</a>
+        </div>
+
+        <table id="tb-loading" style="display: none;float: right;">
+            <tr>
+                <td>
+                    <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading"
+                         style="width: 48px">
+                </td>
+                <td>
+                    <div class="loading-design">
+
+                        <span>Đang gửi yêu cầu của bạn tới Soloyo. Vui lòng đợi trong giây lát.</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <button id="btn-send-request" class="btn-soloyo" style="float: right">Gửi yêu cầu</button>
+    </div>
+</div>
+
+<script>
+    var request_product_url = '<?php echo $request_product_url; ?>';
+</script>

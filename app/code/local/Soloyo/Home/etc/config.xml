@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Soloyo_Home>
+            <version>0.1.0</version>
+        </Soloyo_Home>
+    </modules>
+    
+    <global>
+        <page>
+            <layouts>
+                <homepage translate="label">
+                    <label>Soloyo homepage</label>
+                    <template>page/home.phtml</template>
+
+                </homepage>
+            </layouts>
+        </page>
+     
+    </global>
+</config>

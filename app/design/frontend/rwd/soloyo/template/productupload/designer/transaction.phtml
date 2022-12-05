@@ -1,0 +1,97 @@
+<?php
+$designer = $this->getCurrentDesigner();
+$collection = $this->getCollection();
+?>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<div class="balance-amount-container">
+    <div class="balance-containter">
+        <span class="balance-designer-label">Số dư:</span> <span
+                class="balance-designer"><?php echo $designer->getBalance(); ?></span>
+    </div>
+    <?php if ($designer->getBalance() >= 50000): ?>
+        <div class="draw-request-containter">
+            <form action="<?php echo $this->getDrawRequestUrl() ?>" method="post" id="form-draw-request"
+                  class="scaffold-form"
+                  enctype="multipart/form-data">
+                <input type="hidden" name="form_key"
+                       value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+                <input type="hidden" name="designer_id" value="<?php echo $designer->getId() ?>">
+                <div class="draw-amount-amount col-md-3">
+                    <span>Số tiền muốn rút</span>
+                    <input type="number" name="amount" placeholder="50000" id="amount">
+                    <span id="amount-warning"></span>
+                </div>
+                <div class="draw-amount-comment col-md-6">
+                    <span>Comment</span>
+                    <input type="text" name="designer_comment" placeholder="" id="designer_comment">
+                </div>
+                <div class="draw-amount-button col-md-2">
+                    <button id="btn-send-draw-request">Gửi yêu cầu</button>
+                </div>
+            </form>
+        </div>
+    <?php else: ?>
+        <div class="row">
+            <span>Số dư của bạn chưa đủ để thực hiện yêu cầu rút tiền.</span>
+        </div>
+    <?php endif; ?>
+
+</div>
+
+<?php if ($collection && count($collection)): ?>
+    <div class="col-md-12 transaction-history">
+        <h4>Lịch sử rút tiền</h4>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Số tiền muốn rút</th>
+                <th>Comment của bạn</th>
+                <th>Ngày gửi yêu cầu</th>
+                <th>Trạng thái</th>
+                <th>Hình ảnh chuyển khoản</th>
+                <th>Comment của admin</th>
+                <th>Ngày phản hồi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($collection as $transaction): ?>
+
+                <tr>
+                    <td><?php echo $transaction->getAmount() ?></td>
+                    <td><?php echo $transaction->getDesignerComment() ?></td>
+                    <td><?php echo $transaction->getCreatedTime() ?></td>
+                    <td><?php echo $this->getStatus($transaction->getStatus()) ?></td>
+                    <td>
+                        <?php if ($transaction->getImageTransaction()): ?>
+                            <img src="<?php echo Mage::helper('productupload')->getUrlImageDesignerTransaction() . $transaction->getImageTransaction() ?>"
+                                 alt="transaction-image" height="80px">
+                        <?php endif;?>
+                    </td>
+
+                    <td><?php echo $transaction->getAdminComment() ?></td>
+                    <td><?php echo $transaction->getUpdateTime() ?></td>
+                </tr>
+
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?php echo $this->getPagerHtml() ?>
+    </div>
+
+<?php else: ?>
+
+<?php endif; ?>
+
+
+
+
+
+<script>
+    var balance = <?php  echo $designer->getBalance()?>;
+
+</script>
+
+

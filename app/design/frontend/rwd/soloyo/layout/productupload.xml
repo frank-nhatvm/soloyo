@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+        <!-- update layout for all frontend page -->
+    </default>
+    <productupload_index_index>
+        <reference name="content">
+            <block type="productupload/productupload" name="productupload"
+                   template="productupload/productupload.phtml"/>
+        </reference>
+    </productupload_index_index>
+
+    <productupload_designer>
+        <label>Designer</label>
+        <reference name="head">
+
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/designer.css</name>
+            </action>
+        </reference>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="productupload/designer_navigation" name="productupload_designer_navigation" before="-"
+                   template="productupload/designer/navigation.phtml">
+                <action method="addLink" translate="label" module="productupload">
+                    <name>dashboard</name>
+                    <path>productupload/designer/index/</path>
+                    <label>Thông tin chung</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>designer_transaction</name>
+                    <path>productupload/designer/transaction/</path>
+                    <label>Giao dịch</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>desinger_design</name>
+                    <path>productupload/designer/design/</path>
+                    <label>Các thiết kế của tôi</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>desinger_size</name>
+                    <path>productupload/designer/size/</path>
+                    <label>Kích thước cho thiết kế</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>desinger_mockup</name>
+                    <path>productupload/designer/mockup/</path>
+                    <label>Mockup Template</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>desinger_linkbuilder</name>
+                    <path>productupload/designer/linkbuilder/</path>
+                    <label>Link Builder</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>desinger_rank</name>
+                    <path>productupload/designer/rank/</path>
+                    <label>Bảng xếp hạng</label>
+                </action>
+                <action method="addLink" translate="label" module="productupload">
+                    <name>designer_guide</name>
+                    <path>productupload/designer/guide/</path>
+                    <label>Hướng dẫn</label>
+                </action>
+            </block>
+        </reference>
+    </productupload_designer>
+
+    <productupload_designer_rank translate="label">
+
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_rank" name="productupload_designer_rank"
+                   template="productupload/designer/rank.phtml">
+            </block>
+        </reference>
+    </productupload_designer_rank>
+
+    <productupload_designer_index translate="label">
+        <update handle="productupload_designer"/>
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/designer.js</script>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+
+        <reference name="content">
+            <block type="productupload/designer" name="productupload_designer"
+                   template="productupload/designer/dashboard.phtml">
+            </block>
+        </reference>
+    </productupload_designer_index>
+
+    <productupload_designer_transaction translate="label">
+        <update handle="productupload_designer"/>
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/transaction.js</script>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_transaction" name="productupload_designer_transaction"
+                   template="productupload/designer/transaction.phtml">
+            </block>
+        </reference>
+    </productupload_designer_transaction>
+
+    <productupload_designer_design translate="label">
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_design" name="productupload_designer_design"
+                   template="productupload/designer/design.phtml">
+
+            </block>
+        </reference>
+    </productupload_designer_design>
+
+    <productupload_designer_newdesign translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/newdesign.js</script>
+            </action>
+        </reference>
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_design" name="productupload_designer_newdesign"
+                   template="productupload/designer/newdesign.phtml">
+            </block>
+        </reference>
+    </productupload_designer_newdesign>
+    <productupload_designer_editdesign translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/editdesign.js</script>
+            </action>
+        </reference>
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_design" name="productupload_designer_editdesign"
+                   template="productupload/designer/editdesign.phtml">
+            </block>
+        </reference>
+    </productupload_designer_editdesign>
+    <productupload_designer_register>
+
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/designer.css</name>
+            </action>
+        </reference>
+
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/messages" name="global_messages" as="global_messages"/>
+            <block type="productupload/designer_register" name="productupload_designer_register"
+                   template="productupload/designer/register.phtml">
+            </block>
+        </reference>
+    </productupload_designer_register>
+
+    <productupload_designer_intro>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/introdesigner.css</name>
+            </action>
+            <action method="addJs">
+                <script>soloyo/introdesigner.js</script>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_intro" name="productupload_designer_intro"
+                   template="productupload/designer/intro.phtml">
+            </block>
+        </reference>
+
+    </productupload_designer_intro>
+
+
+
+    <productupload_designer_size translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/designersize.js</script>
+            </action>
+        </reference>
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_size" name="productupload_designer_size"
+                   template="productupload/designer/size.phtml">
+
+            </block>
+        </reference>
+    </productupload_designer_size>
+
+    <productupload_designer_linkbuilder translate="label">
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_linkbuilder" name="productupload_designer_linkbuilder"
+                   template="productupload/designer/linkbuilder.phtml">
+
+            </block>
+        </reference>
+    </productupload_designer_linkbuilder>
+
+    <productupload_designer_guide>
+        <update handle="productupload_designer"/>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/guidedesigner.css</name>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_guide" name="productupload_designer_guide"
+                   template="productupload/designer/guide.phtml">
+            </block>
+        </reference>
+
+    </productupload_designer_guide>
+
+    <productupload_index_requestproduct>
+        <reference name="head">
+            <action method="addJs"><script>soloyo/requestproduct.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="productupload/requestproduct" name="requestproduct" template="productupload/requestproduct.phtml" />
+        </reference>
+    </productupload_index_requestproduct>
+
+    <productupload_designer_mockup translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/mockup.js</script>
+            </action>
+        </reference>
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_mockup" name="productupload_designer_mockup"
+                   template="productupload/designer/mockup.phtml">
+
+            </block>
+        </reference>
+    </productupload_designer_mockup>
+
+    <productupload_designer_newmockup translate="label">
+        <reference name="head">
+            <action method="addJs">
+                <script>soloyo/newmockup.js</script>
+            </action>
+        </reference>
+        <update handle="productupload_designer"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+
+        </reference>
+        <reference name="content">
+            <block type="productupload/designer_mockup" name="productupload_designer_mockup"
+                   template="productupload/designer/newmockup.phtml">
+
+            </block>
+        </reference>
+    </productupload_designer_newmockup>
+
+
+</layout>

@@ -1,0 +1,633 @@
+@font-face {
+    font-family: don_gian;
+    src: url('../fonts/don_gian.ttf');
+}
+
+@font-face {
+    font-family: fantasy;
+    src: url('../fonts/fantacy.ttf');
+}
+
+@font-face {
+    font-family: net_but_long;
+    src: url('../fonts/net_but_long.TTF');
+}
+
+@font-face {
+    font-family: nhe_nhang;
+    src: url('../fonts/nhe_nhang.ttf');
+}
+
+@font-face {
+    font-family: truyen_tranh;
+    src: url('../fonts/truyen_tranh.ttf');
+}
+
+@font-face {
+    font-family: vni_chops;
+    src: url('../fonts/VNI-Chops.ttf');
+}
+
+@font-face {
+    font-family: vni_hobo;
+    src: url('../fonts/VNI-Hobo.TTF');
+}
+
+@font-face {
+    font-family: vni_mandalay;
+    src: url('../fonts/VNI-Mandalay.ttf');
+}
+
+@font-face {
+    font-family: slogan;
+    src: url('../fonts/VNI-Slogan.ttf');
+}
+
+@font-face {
+    font-family: thuphap;
+    src: url('../fonts/VNI-Thuphap1.ttf');
+}
+
+@font-face {
+    font-family: chuky1;
+    src: url('../fonts/chu_ky1.ttf');
+}
+
+@font-face {
+    font-family: chuky2;
+    src: url('../fonts/chu_ky2.ttf');
+}
+
+@font-face {
+    font-family: chuky3;
+    src: url('../fonts/chu_ky3.TTF');
+}
+
+@font-face {
+    font-family: chuky4;
+    src: url('../fonts/chu_ky4.ttf');
+}
+
+.product-name h1 {
+    font-family: vietnam_font;
+    font-weight: bold;
+    font-size: 24px;
+    color: #2d2d2d;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    border-bottom: none;
+}
+
+.container-designby {
+    margin-top: 20px;
+}
+
+.container-designby span {
+    font-family: vietnam_font;
+    font-size: 18px;
+    color: #2d2d2d;
+}
+
+#soloyo-related-product {
+    margin-top: 20px;
+}
+
+#soloyo-related-product h2 {
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+}
+
+.product-view {
+
+}
+
+.product-info-box {
+    padding-left: 47px;
+}
+
+.product-view .add-to-cart .qty-wrapper .qty {
+    width: 4em !important;
+}
+
+.product-view .product-shop .price-box {
+    color: #0bb5a2;
+    font-weight: bold;
+    font-family: vietnam_font;
+    font-size: 24px;
+}
+
+.price {
+    color: #0bb5a2 !important;
+}
+
+.short-description {
+    font-family: vietnam_font;
+    color: #2d2d2d;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.product-view .add-to-cart-wrapper {
+    width: 100% !important;
+}
+
+.product-view .add-to-cart {
+    border-bottom: none;
+}
+
+.product-view .add-to-cart .qty-wrapper {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.product-view .add-to-cart-wrapper {
+    padding-left: 0px;
+    margin-top: 40px;
+}
+
+.product-view .add-to-cart-buttons {
+
+    margin-right: 0px;
+}
+
+.product-view .add-to-cart-buttons .button {
+    min-height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 30px;
+    float: left;
+    min-width: 160px;
+    width: 100%;
+    white-space: normal;
+    border: solid 1px #0bb5a2;
+    border-radius: 22px;
+    background: #0bb5a2;
+}
+
+.product-options {
+    border: none;
+    padding: 0px 0px;
+}
+
+.product-options-bottom {
+    border: none;
+    background: #ffffff;
+}
+
+.product-options p.required {
+    display: none;
+}
+
+.price-info {
+    margin-top: 10px;
+}
+
+.price-box .price, .price {
+    font-family: vietnam_font;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0bb5a2;
+}
+
+.product-options dd select {
+    width: 330px;
+    height: 44px;
+    font-family: vietnam_font;
+    font-size: 16px;
+    font-weight: 300;
+    border: none;
+    background: #f2f3f5;
+    outline: none;
+}
+
+.short-description {
+    margin-top: 40px;
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+}
+
+.description-content {
+    font-weight: 300 !important;
+}
+
+/* case design*/
+
+.modal-content {
+    margin-top: 130px !important;
+}
+
+.tabs {
+    border: solid 1px #f2f3f5;
+    background: #f2f3f5;
+    height: 60px;
+    margin-bottom: 0px !important;
+}
+
+.tab-button {
+    height: 60px;
+
+    width: 25%;
+
+    float: left;
+    display: inline;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+}
+
+.tab-button i {
+    font-size: 18px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    font-weight: 400;
+}
+
+.tab-button span {
+    position: absolute;
+    top: 18px;
+    left: 26px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tabcontent {
+    min-height: 60px;
+    border: solid 1px #f2f3f5;
+    margin-bottom: 10px;
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 1px;
+}
+
+.tabcontent-column {
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+}
+
+.tabcontent-column i {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+}
+
+.tabcontent-column span {
+    position: absolute;
+    top: 15px;
+    left: 29px;
+}
+
+.tabselected {
+    background: #ffffff;
+    color: #0bb5a2;
+}
+
+.texcontent-row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.texcontent-row span {
+    width: 30% !important;
+    font-size: 14px;
+}
+
+.texcontent-row input[type=text] {
+    background-color: #ffffff;
+    border: solid 1px #f2f3f5;
+    height: 36px !important;
+
+}
+
+.texcontent-row select {
+    width: 100% !important;
+    background-color: #ffffff;
+    border: solid 1px #f2f3f5 !important;
+    border-radius: 0px !important;
+    height: 36px !important;
+}
+
+.text-effect-container {
+    margin-bottom: 20px;
+}
+
+.text-group {
+    border-bottom: solid 1px #f2f3f5;
+    height: 28px;
+}
+
+.text-group-action {
+    width: 32%;
+    float: left;
+    height: 24px;
+    text-align: center;
+}
+
+.text-group-selected {
+    background: #0bb5a2;
+    color: #ffffff;
+}
+
+.text-group-action i {
+
+}
+
+#text-group-content {
+    border-right: solid 1px #f2f3f5
+}
+
+#text-group-font {
+    border-right: solid 1px #f2f3f5
+}
+
+#text-group-color {
+
+}
+
+.textbodyfont-column {
+    width: 33%;
+    float: left;
+}
+
+#text-font-container {
+    border-right: solid 1px #f2f3f5;
+}
+
+#text-size-container {
+    border-right: solid 1px #f2f3f5;
+}
+
+#text-body-font {
+    display: -webkit-flex; /* Safari */
+
+}
+
+.textbodycolor-column {
+    width: 50%;
+    float: left;
+}
+
+#casedesign-textcolor {
+    border-right: solid 1px #f2f3f5;
+}
+
+#casedesign-backgroundcolor {
+    border-right: solid 1px #f2f3f5;
+}
+
+.color-container .custom-select input[type=text] {
+    font-size: 14px !important;
+}
+
+.canvas-container {
+    margin-top: 20px !important;
+
+    margin-bottom: 20px !important;
+}
+
+.casedesign-canvas-container {
+    margin-left: 30% !important;
+}
+
+.button-modal-footer {
+    display: inline;
+    border: solid 1px #0bb5a2;
+    border-radius: 22px;
+    color: #ffffff;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    background: #0bb5a2;
+    min-width: 140px;
+    min-height: 44px;
+    margin-left: 20px;
+    padding: 5px 14px;
+}
+
+.casedesign-button {
+    margin-top: 15px;
+    min-height: 40px;
+}
+
+.button-casedesign {
+    border: solid 1px #0bb5a2;
+    padding: 10px 5px;
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    display: inline;
+    border-radius: 8px;
+    float: right;
+    background: #0bb5a2;
+}
+
+.loading-design span {
+    font-family: vietnam_font;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0bb5a2;
+}
+
+.button-disable {
+    background: #cacaca;
+    border: solid 1px #cacaca;
+}
+
+.custom-popup {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.custom-popup .custom-popuptext {
+    visibility: visible;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popupbottom .custom-popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.popuptop .custom-popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.popupleft .custom-popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 40%;
+    left: -4%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent;
+}
+
+.popupright .custom-popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 40%;
+    left: 103%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #555;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#guide-user-text-content {
+    margin-left: 70px;
+    margin-top: 62px;
+}
+
+.modal-image-guide {
+    width: 40%;
+    margin-left: 20%
+}
+
+.iguide-design-container {
+    margin-top: 50px;
+}
+
+.iguide-design-container h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2d2d2d;
+    text-transform: none;
+    font-family: vietnam_font
+}
+
+.tab-iguide {
+    overflow: hidden;
+    background: #f2f3f5;
+}
+
+.iguide-main {
+    border: solid 1px #f2f3f5;
+    margin-top: 20px;
+}
+
+.tab-controller-iguide {
+    display: block;
+    color: #2d2d2d;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 20px;
+    background-color: #eee;
+    transition: 0.3s;
+    position: relative;
+}
+
+.tab-controller-iguide img{
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    float: right;
+}
+
+.tab-controller-iguide span{
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2d2d2d;
+}
+
+.tabcontent-iguide {
+
+    color: #2d2d2d;
+}
+
+.tabcontent-iguide span {
+    font-weight: 300;
+}
+
+.iguide-design-image-container {
+    margin-top: 30px
+}
+
+.iguide-row {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.iguide-row h4 {
+    font-size: 20px;
+    color: #2d2d2d;
+    text-transform: none;
+    font-family: vietnam_font
+}
+
+.iguide-row-content {
+    margin-top: 10px;
+}
+
+/* end case design */

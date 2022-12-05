@@ -1,0 +1,103 @@
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Tìm Template cho điện thoại </h1>
+    </div>
+
+    <div class="col-md-4">
+
+        <table id="tb-loading-mockup" style="display: none;float: right;">
+            <tr>
+                <td>
+                    <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading"
+                         style="width: 48px">
+                </td>
+                <td>
+                    <div class="loading-design">
+
+                        <span>Đang lấy template. Vui lòng đợi trong giây lát.</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <button style="float: right;display: none" class="btn-soloyo" id="btn-get-mockup">Tìm ngay</button>
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px">
+    <div class="custom-select-container col-md-6">
+
+        <input type="hidden" name="brand_id" id="brand-mobile-input"
+               value=""/>
+        <div class="custom-select" id="brand-mobile" onclick="select_brand()">
+            <span type="text" class="custom-select-content">Lựa chọn một hãng điện thoại</span>
+            <i class="material-icons md-24 ">arrow_drop_down</i>
+        </div>
+        <div class="custom-select-option box-shadow-class" id="brand-mobile-value"
+             style="display: none">
+
+        </div>
+    </div>
+
+    <div class="custom-select-container col-md-6">
+
+        <input type="hidden" name="model_id" id="model-mobile-input"
+               value=""/>
+        <div class="custom-select" id="model-mobile" onclick="select_mobile()">
+            <span type="text" class="custom-select-content">Lựa chọn một dòng điện thoại</span>
+            <i class="material-icons md-24 ">arrow_drop_down</i>
+        </div>
+        <div class="custom-select-option box-shadow-class" id="model-mobile-value"
+             style="display: none">
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="row" style="margin-top: 20px;font-size: 10px; ">
+    <div class="col-md-6" style="float: left">
+        <a href="<?php echo Mage::getUrl('productupload/designer/newMockup', array('_secure' => true));  ?>">Tôi muốn chia sẻ Mockup của tôi với mọi người</a>
+    </div>
+    <div class="col-md-6" style="float: right">
+    <span >Không tìm thấy dòng điện thoại của bạn? </span><a href="<?php echo Mage::getUrl('brandmodel/index/requestbrand',array('_secure'=>true)); ?>">Hãy nói với chúng tôi, cập nhật trong một nốt nhạc</a>
+    </div>
+</div>
+
+
+
+
+<div class="result" style="margin-top: 90px;">
+
+    <div class="row" id="message-size" style="display: none;color:red">
+        <span></span>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Hãng điện thoại</th>
+            <th>Dòng điện thoại</th>
+            <th>Tải lên bởi</th>
+            <th>Khuyến cáo sử dụng</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="tbody-result-size">
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    var brand_model_url = '<?php echo Mage::getUrl('brandmodel/index/brand_models', array('_secure' => true)); ?>';
+
+    var getTempate_url = '<?php echo Mage::getUrl('productupload/designer/getTemplate', array('_secure' => true)); ?>';
+    var base_download_url = '<?php echo Mage::getUrl('productupload/designer/downloadMockup', array('_secure' => true)); ?>';
+
+</script>

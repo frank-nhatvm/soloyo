@@ -1,0 +1,50 @@
+<?php
+$email_data = $this->getData('custom_email_data');
+$name = $email_data['name'];
+$code = $email_data['code'];
+?>
+
+<div>
+    <table>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+                <span>Xin chào,</span><b><?php echo $name; ?></b>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+                <span>Soloyo xin gửi bạn mã tham dự chương trình: </span><b style="font-size: 16px">Mua ốp lưng trúng điện thoại Vsmart Active 1</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+                <span>Mã trúng thưởng: </span> <b style="font-size: 18px"><?php echo $code; ?></b>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+                <span>Lưu ý: Mã trúng thưởng chỉ có giá trị khi đơn hàng thanh toán thành công.</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+                <span>Thông tin về giải thưởng và trao giải sẽ được đăng tải lên </span><a
+                        href="https://www.facebook.com/soloyo.vn">Fanpage của Soloyo</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;color: #2d2d2d;">
+    <span>
+        Thân ái,
+    </span>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 10px ;">
+    <span style="font-size: 18px; color:#0bb5a2">
+        Soloyo- Ốp lưng cho giới trẻ
+    </span>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Soloyo_Ishipping>
+            <version>0.1.0</version>
+        </Soloyo_Ishipping>
+    </modules>
+
+    <global>
+        <models>
+            <ishipping>
+                <class>Soloyo_Ishipping_Model</class>
+            </ishipping>
+        </models>
+
+        <helpers>
+            <ishipping>
+                <class>Soloyo_Ishipping_Helper</class>
+            </ishipping>
+        </helpers>
+    </global>
+    <default>
+        <carriers>
+            <soloyo_ishipping>
+                <active>1</active>
+                <model>ishipping/carrier_carrier</model>
+                <name>Giá: </name>
+                <price>10.00</price>
+                <title>Vận chuyển bởi Soloyo</title>
+            </soloyo_ishipping>
+        </carriers>
+    </default>
+</config>

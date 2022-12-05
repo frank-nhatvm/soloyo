@@ -1,0 +1,80 @@
+<?php
+$onestepcheckout = Mage::getSingleton('onestepcheckout/type_geo');
+$totals = $onestepcheckout->getQuote()->getTotals();
+
+if ($totals['shipping'] && $totals['shipping']->getAddress()) {
+    $shipping_fee = $totals['shipping']->getAddress()->getShippingInclTax();
+}
+
+if (isset($totals["discount"])) {
+    $discount = $totals["discount"]->getValue();
+}
+
+
+$grand_total = $totals['grand_total']->getValue();
+$sub_total = $totals['subtotal']->getValue();
+
+?>
+<div class="osc-totals">
+    <table width="100%">
+        <tbody>
+
+        <tr style="    border: solid 1px #b7b7b7; ">
+            <td class="label-total" colspan="2" style="border-right: solid 1px #b7b7b7;">Tổng tiền:</td>
+            <td class="value-total">
+                <span><?php echo $this->helper('checkout')->formatPrice($sub_total); ?></span>
+            </td>
+        </tr>
+
+        <?php if ($shipping_fee && $shipping_fee > 0): ?>
+
+            <tr style="    border: solid 1px #b7b7b7;">
+                <td class="label-total" colspan="2" style="border-right: solid 1px #b7b7b7;">
+                    <span> Phí vận chuyển </span>
+                </td>
+                <td class="value-total">
+                    <span><?php echo $this->helper('checkout')->formatPrice($shipping_fee); ?></span>
+                </td>
+            </tr>
+
+        <?php endif; ?>
+
+        <?php if ($discount && $discount != 0) : ?>
+
+            <tr style="background: #F4F4F4; border: solid 1px #b7b7b7;">
+                <td  colspan="2" style="border-right: solid 1px #b7b7b7;" onclick="removeCouponCode()">
+                    <img src="<?php echo $this->getSkinUrl('images/icon_remove.png',array('_secure'=>true)); ?>" alt="icon remove"
+                         style="width: 12px; height: 12px; display: inline;margin-left: 10px">
+                    <span class="label-total">Giảm giá </span>
+                </td>
+                <td class="value-total">
+                    <span><?php echo $this->helper('checkout')->formatPrice($discount); ?></span>
+                </td>
+            </tr>
+        <?php endif; ?>
+        <tr style="background: #000000;border: solid 1px #000000;">
+            <td class="label-grand-total" colspan="2" style="border-right: solid 1px #FFFFFF">
+                <strong>Cần thanh toán</strong>
+            </td>
+            <td class="value-grand-total">
+                <strong><?php echo $this->helper('checkout')->formatPrice($grand_total); ?> </strong>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <?php if (!$discount) : ?>
+        <div class="textCode" id="useCouponCode" onclick="showInputCouponArea()">
+            Sử dụng mã giảm giá
+        </div>
+        <div class="inputCode" style="display: none">
+
+            <button id="btnApplyCouponCode" type="button" onclick="applyCouponCode()">Áp dụng</button>
+
+
+            <input name="CouponCode" id="CouponCode" placeholder="Nhập mã giảm giá" maxlength="20" aria-invalid="false"
+                   class="valid">
+            <label id="CouponCode-error" class="error" style="display: none" for="CouponCode">Mã giảm giá không hợp lệ.</label>
+        </div>
+    <?php endif; ?>
+</div>

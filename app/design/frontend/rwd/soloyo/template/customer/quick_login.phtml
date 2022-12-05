@@ -1,0 +1,81 @@
+<div id="login_out">
+
+    <a href="javascript:void(0);" id="action-login-form">
+        <i class="material-icons top-control">person</i>
+    </a>
+
+    <div class="popup-login-form" style="display: none">
+
+        <form action="<?php echo Mage::getUrl('', array('_secure' => true)) ?>customer/account/loginPost/"
+              method="post"
+              id="login-form"
+              onsubmit="return false;"
+              name="login_form"
+        >
+
+            <h4>Đăng nhập</h4>
+
+            <div class="login-facebook">
+                <a href="#" onclick="login();return false;" class="btn-soloyo"><i
+                            class="fa fa-facebook"></i> LOGIN WITH FACEBOOK</a>
+            </div>
+
+            <div class="suggest-login">
+                <span>Hoặc đăng nhập bằng tài khoản của bạn</span>
+            </div>
+
+            <div class="login-phone">
+                <label for="login_phone">Số điện thoại</label>
+                <input name="login[phone]" id="login_phone" type="text" class="onestepcheckout-input validate-length maximum-length-12 minimum-length-10 validate-digits  required-entry validate-number "
+                       maxlength="11" minlength="10"
+                title="Số điện thoại"
+                />
+            </div>
+
+            <div class="login-password">
+                <label for="login_password"></label>
+                <input type="password" name="login[password]"
+                       class="onestepcheckout-input input-text required-entry validate-password" id="login_password"
+                       title="Mật khẩu"
+                       />
+            </div>
+
+            <div class="login-submit">
+                <button type="submit" id="btn-login" class="btn-soloyo" onclick="customerLogin(this)">Đăng nhập</button>
+            </div>
+
+            <div class="login-footer">
+                <div class="forgotpassword">
+                    <a href="<?php echo $this->getForgotPasswordUrl() ?>">Quên mật khẩu?</a>
+                </div>
+
+                <div class="register-account">
+                    <a href="#register">Đăng ký</a>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    //< ![CDATA[
+    var customLoginForm = new VarienForm('login_form');
+    var customSignupForm = new VarienForm('custom-signup-form');
+    function customerLogin(button) {
+        if (customLoginForm.validator && customLoginForm.validator.validate()) {
+            button.disabled = true;
+            customLoginForm.submit();
+        }
+    }
+    function customerRegister(button) {
+        if (customSignupForm.validator && customSignupForm.validator.validate()) {
+            button.disabled = true;
+            customSignupForm.submit();
+        }
+    }
+    //]]>
+</script>

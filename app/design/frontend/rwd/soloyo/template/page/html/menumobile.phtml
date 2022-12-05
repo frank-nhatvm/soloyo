@@ -1,0 +1,93 @@
+<?php
+$menu = Mage::getModel('menutop/menutop')->getMenuTopItems();
+?>
+<div id="mobile-menu-container" style="
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0px;
+
+    overflow-x: hidden;
+    transition: 0.5s;
+    ">
+    <div id="main-mobile-menu" style="width: 80%   ; height: 100%;
+    position: absolute;
+    background: #fff;">
+        <nav id="menu" class="menu">
+            <?php foreach ($menu as $item_menu) : ?>
+                <?php $parent_id = $item_menu['id']; ?>
+                <?php $parent_url = $item_menu['url'] ?>
+                <section class="menu-section">
+                    <div id="menutop-<?php echo $parent_id; ?>"
+                         onclick="showListSubMenu(this.id)">
+                        <header class="menu-header">
+                            <span class="menu-header-title"
+                                  style=" font-family: vietnam_font;font-size: 14px;font-weight: 400;color: #2d2d2d;"><?php echo $item_menu['name'] ?></span>
+                        </header>
+                    </div>
+                </section>
+                <div class="row mobileSubMenuTop" id="subMenuTop-<?php echo $parent_id ?>"
+                     style="display: none;">
+                    <?php $subCategories = $item_menu['sub_cate'] ?>
+                    <ul style="margin-left: 15px;">
+                        <?php foreach ($subCategories as $subCategory): ?>
+                            <li style="padding: 16px 32px;
+    font-family: vietnam_font;
+    line-height: 15px;
+    border-bottom: solid 1px #f2f3f5;
+    background: #ffffff;">
+                                <a href="<?php echo $subCategory['url'] ?>"> <?php echo $subCategory['name'] ?></a>
+                            </li>
+                        <?php endforeach; ?>
+
+                        <li style="padding: 16px 32px;
+    font-family: vietnam_font;
+    line-height: 15px;
+    border-bottom: solid 1px #f2f3f5;
+    background: #ffffff;">
+                            <a href="<?php echo $parent_url ?>"> Tất cả</a>
+                        </li>
+
+                    </ul>
+                </div>
+            <?php endforeach; ?>
+        </nav>
+    </div>
+
+    <div style="right: 0px; width: 20%;background-color: rgba(0,0,0, 0.7);position: absolute; height: 100%"
+         onclick="closeNav()">
+
+    </div>
+</div>
+
+<script>
+    function showListSubMenu(elementId) {
+        var arrayParentId = elementId.split('-');
+        var parentId = arrayParentId[1];
+        console.log('elementid ' + elementId);
+        $j('.mobileSubMenuTop').each(function () {
+            var arrayCurrentId = this.id.split('-');
+            var currentId = arrayCurrentId[1];
+            console.log(" id " + currentId)
+
+            if (currentId != parentId) {
+                console.log('other ');
+                $j(this).css('display', 'none');
+            }
+        });
+
+        if ($j('#subMenuTop-' + parentId).css('display') == 'none') {
+            $j('#subMenuTop-' + parentId).css('display', 'block');
+        }
+        else {
+            $j('#subMenuTop-' + parentId).css('display', 'none');
+        }
+    }
+</script>
+
+
+
+

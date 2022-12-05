@@ -1,0 +1,28 @@
+<?php
+
+$email_data = $this->getData('custom_designer_data');
+
+$designer_name = $email_data['designer_name'];
+$product_name = $email_data['product_name'];
+$product_url = $email_data['product_url'];
+$requirement = $email_data['requirement'];
+
+$dashboard_url = Mage::getUrl('productupload/designer/index', array('_secure' => true));;
+
+
+?>
+
+<div>
+    <span>Xin chào <?php echo $designer_name?></span>
+    <br/>
+    <span>
+        Một khách hàng muốn có thiết kế </span> <a href="<?php echo $product_url ?>"> <?php echo $product_name ?></a>
+    <span>cho dòng điện thoại của họ.</span>
+    <br/>
+    <span>Yêu cầu cụ thể của khách như sau:</span>
+    <br/>
+    <span> <?php echo $requirement ?> </span>
+    <br/>
+
+    <span>Hãy truy cập</span> <a href="<?php echo $dashboard_url ?>"> tài khoản của bạn </a> để cập nhật mẫu thiết kế và chốt ngay đơn hàng này nào.</span>
+</div>

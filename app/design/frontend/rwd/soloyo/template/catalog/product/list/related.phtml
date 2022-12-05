@@ -1,0 +1,28 @@
+<?php
+
+?>
+
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/owl.carousel.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/customizeproduct.js') ?>"></script>
+
+
+
+<?php if($this->getItems()->getSize()): ?>
+    <div id="owl-related-product" class="owl-carousel">
+<?php foreach($this->getItems() as $_item): ?>
+
+    <div style="margin-right: 10px;">
+        <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo  $this->escapeHtml($_item->getName())  ?>">
+            <img style="border: solid 1px #f2f3f5;max-width: 100%" src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(500) ?>" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" />
+        </a>
+        <h3 class="name-home-productlist" style="text-align: center;    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    color: #2d2d2d;
+    text-transform: none;
+    margin-top: 10px;
+    font-family: vietnam_font;" ><?php echo  $this->escapeHtml($_item->getName()) ?></h3>
+    </div>
+<?php endforeach ?>
+    </div>
+<?php endif ?>

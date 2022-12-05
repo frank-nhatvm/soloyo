@@ -1,0 +1,67 @@
+<?php
+$caseorder_ids = $this->getData('caseorder_ids');
+$list_caseorder_ids = explode(', ', $caseorder_ids);
+$data = array();
+foreach ($list_caseorder_ids as $caseorder_id) {
+    $case_order_model = Mage::getModel('casedesign/caseorder')->load($caseorder_id);
+    if ($case_order_model && $case_order_model->getId()) {
+        $item_data = array();
+        $order_id = $case_order_model->getOrderId();
+        $order = Mage::getModel('sales/order')->load($order_id);
+        $real_order_id = $order->getIncrementId();
+        $item_data['order_id'] = $real_order_id;
+
+        $order_items = array();
+        $collection = Mage::getModel('casedesign/caseorderitem')
+            ->getCollection()->addFieldToFilter('caseorder_id', $caseorder_id);
+        foreach ($collection as $item_order) {
+            $item = array();
+
+            if ($item_order->getContentDesign()) {
+                $image_path = Mage::helper('casedesign')->getUrlPathCasedesignCustomer();
+            } else {
+                $image_path = Mage::helper('productupload')->getUrlImageProductUpload();
+            }
+
+            $item['link_image'] = $image_path . $item_order->getDesignImage();
+            $product = Mage::getModel('catalog/product')->load($item_order->getProductId());
+            $item['product_name'] = $product->getName();
+            $order_items[] = $item;
+        }
+        $item_data['order_items'] = $order_items;
+        $data[] = $item_data;
+    }
+}
+
+?>
+
+<div style="width: 50%">
+
+    <?php foreach ($data as $item_data): ?>
+        <div style="border: solid 1px #f2f3f5; margin-bottom: 20px">
+            <div style="padding: 10px 10px;background: #cacaca">
+                <span>Mã đơn hàng </span> <span style="font-weight: bold; font-size: 18px"><?php echo $item_data['order_id']; ?></span>
+            </div>
+
+            <table style="width:100%">
+                <tr>
+
+                    <th style="  border-top: solid 1px #f2f3f5;  border-right: solid 1px #f2f3f5;padding: 10px 10px" >Tên sản phẩm</th>
+                    <th style="border-top: solid 1px #f2f3f5; padding: 10px 10px" >Link ảnh để in</th>
+                </tr>
+                <?php foreach ($item_data['order_items'] as $order_item) : ?>
+                    <tr style="border: solid 1px">
+                        <td style="    border-right: solid 1px #f2f3f5;border-top: solid 1px #f2f3f5;padding: 10px 10px" >
+                            <span> <?php echo $order_item['product_name'] ?> </span>
+                        </td>
+                        <td style="border-top: solid 1px #f2f3f5;padding: 10px 10px">
+                            <a href="<?php echo $order_item['link_image'] ?>"> Download</a>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+            </table>
+        </div>
+    <?php endforeach; ?>
+
+</div>

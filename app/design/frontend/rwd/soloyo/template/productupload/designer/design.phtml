@@ -1,0 +1,66 @@
+<?php
+$list_design = $this->getCollection();
+
+?>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php if ($list_design && count($list_design)): ?>
+
+    <div class="col-md-12">
+
+        <button onclick="location.href='<?php echo $this->getNewDesignUrl() ?>'" type="button" id="btn-new-design">Thêm thiết kế mới</button>
+
+    </div>
+    <div class="row">
+        <span>Lưu ý: Số lượng đã bán là số lượng đơn hàng mà khách hàng đã thanh toán thành công.</span>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Tên thiết kế</th>
+            <th>Ảnh của thiết kế</th>
+            <th>Số lượng đã bán</th>
+            <th>Miêu tả</th>
+            <th>Trạng thái</th>
+            <th>Action</th>
+            <!--            <th></th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($list_design as $design) : ?>
+            <tr>
+                <td><?php echo $design->getProductName() ?></td>
+                <td>
+                    <img src="<?php echo Mage::helper('productupload')->getUrlImageProductUpload() . $design->getImageProduct() ?>"
+                         alt="case-design" height="80px"></td>
+
+                <td><?php echo $design->getQtySale() ?></td>
+                <td><?php if($design->getDescription()) echo $design->getDescription(); else echo'Chưa có'; ?></td>
+                <td><?php echo $this->getStatusDesign($design->getStatus()) ?></td>
+
+                <?php if($design->getStatus() == 0): ?>
+                    <td><a href="<?php echo $this->getEditDesignUrl($design->getId()) ?>">Cập nhật</a></td>
+                <?php elseif($design->getStatus() == 1): ?>
+                    <td><a href="<?php echo $this->getProductUrl($design->getProductId()) ?>"> Xem sản phẩm</a></td>
+                <?php elseif($design->getStatus() == 2): ?>
+                    <td><?php echo $design->getAdminComment(); ?></td>
+                <?php elseif($design->getStatus() == 3): ?>
+                    <!--                can sua lai-->
+                    <td><a href="<?php echo $this->getEditDesignUrl($design->getId()) ?>">Xem tin nhắn và sửa</a></td>
+                <?php else: ?>
+                    <td>Chưa thể xem</td>
+                <?php endif; ?>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php echo $this->getPagerHtml() ?>
+<?php else: ?>
+
+    <div class="empty">
+        <span>Bạn chưa có thiết kế nào. Hãy <a href="<?php echo $this->getNewDesignUrl(); ?>">thiết kế ngay</a>  để kiếm tiền cùng Soloyo.</span>
+
+    </div>
+
+<?php endif; ?>

@@ -1,0 +1,247 @@
+<?php
+$cate_design_url = $this->getDesignCateUrl();
+$register_aff_url = Mage::getUrl('campaign/aff/register_aff', array('_secure' => true));
+?>
+
+<script>
+
+    var cate_design_url = '<?php echo $cate_design_url; ?>';
+    var register_aff_url = '<?php echo $register_aff_url; ?>';
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '279145496124660',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v3.2'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div class="container" style="color: #2d2d2d;font-family: vietnam_font">
+
+    <div class="row banner-aff">
+        <img style="width: 100%" src="<?php echo $this->getSkinurl('images/banner_aff.png') ?>" alt="banner aff">
+    </div>
+
+    <div style="margin-top: 50px;    text-align: justify;">
+
+        <div>
+            <h2>Giải thưởng</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <span>Giải thưởng là 1 cặp vé xem trận chung kết Việt Nam - Malaysia trong giải bóng đá AFF Suzuki Cup 2018 </span>
+                    <span>diễn ra tại sân động quốc gia Mỹ Đình vào ngày 15-12-2018.</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <h2 style="margin-top: 40px">Cách thức tham dự</h2>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <span>Bước 1: Like <a href="https://www.facebook.com/soloyo.vn/">fanpage</a> để nhận thông báo trúng
+                    thưởng.
+                        </span>
+                    <br/>
+                    <span>Bấm nút Like trong hình để Like fanpage</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="fb-page"
+                         data-href="https://www.facebook.com/soloyo.vn/"
+                         data-width="380"
+                         data-hide-cover="false"
+                         data-show-facepile="true"
+                    ></div>
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 20px">
+
+                <div class="col-md-6">
+
+                    Bước 2: Bấm vào nút <b> "Tham gia và nhận mã trúng thưởng"</b> ở cuối trang để
+                    đăng ký tham
+                    dự chương trình.
+                </div>
+                <div class="col-md-6">
+                    <!--                    <img style="width: 80%" src="-->
+                    <?php //echo $this->getSkinurl('images/joined_guide.png') ?><!--" alt="hướng dẫn tham gia">-->
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-6">
+
+                    <span>Bước 3: Sau khi đăng ký tham gia chương trình thành công, ở trang tiếp theo bạn chọn một dòng điện thoại để thiết kế.</span>
+                    <br/>
+                    <span>Xem hình:</span>
+                </div>
+
+                <div class="col-md-6">
+                    <img style="height: 50%;width: 80%"
+                         src="<?php echo $this->getSkinurl('images/select_brand_model.png') ?>"
+                         alt="chọn dòng điện thoại">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-6">Bước 4: Đọc hướng dẫn và thực hiện tự thiết kế ốp lưng.</div>
+                <div class="col-md-6"></div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-6">
+                    <span>Bước 5: Lưu thiết kế và chia sẻ thiết kế để nhận mã trúng thưởng.</span>
+                    <br/>
+                    <span>Lưu ý: Nút "Chia sẻ và nhận mã trúng thưởng" chỉ xuất hiện sau khi bạn lưu thiết kế.</span>
+                    <br/>
+                    <span>
+                    Mã số trúng thưởng của khách hàng bao gồm 5 chữ số. Ví dụ: 81154.
+                        </span>
+                </div>
+                <div class="col-md-6">
+                    <img style="width: 80%" src="<?php echo $this->getSkinurl('images/nhan_ma_trung_thuong.png') ?>"
+                         alt="hướng dẫn nhận mã trúng thưởng">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <h2 style="margin-top: 40px">Cách thức xác định trúng thưởng</h2>
+            <div class="col-md-12">
+                <span>Soloyo sẽ sử dụng giải đặc biệt của kết quả xổ số Miền Bắc ngày 14-12-2018 (sau đây gọi là giải đặc biệt XSMB) để xác định khách trúng thưởng như sau: </span>
+                <ul style="list-style-type: square;">
+
+                    <li class="listyle1" style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;">
+                        <span>Có từ 0-9 người tham dự thì khách hàng nào có chữ số đầu tiền trong mã trúng thưởng trùng với chữ số đầu tiên trong giải đặc biệt XSMB tính từ phải qua trái là người trúng thưởng.</span>
+                        <br/>
+                        <span>
+                        Ví dụ: giải đặc biệt XSMB là 98768 thì khách hàng có mã số 00008 là người trúng thưởng.
+                        </span>
+                        <br/>
+
+                    </li>
+                    <li class="listyle1" style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;"><span>Có từ 0-99 người tham dự thì khách hàng nào có hai chữ số đầu tiền trong mã trúng thưởng trùng với hai chữ số đầu tiên trong giải đặc biệt XSMB tính từ phải qua trái là người trúng thưởng.</span>
+                        <br/>
+                        <span>
+                        Ví dụ: giải đặc biệt XSMB là 98768 thì khách hàng có mã số 00068 là người trúng thưởng.
+                        </span>
+                        <br/>
+
+                    </li>
+                    <li class="listyle1" style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;"><span>Có từ 0-999 người tham dự thì khách hàng nào có ba chữ số đầu tiền trong mã trúng thưởng trùng với ba chữ số đầu tiên trong giải đặc biệt XSMB tính từ phải qua trái là người trúng thưởng.</span>
+                        <br/>
+                        <span>
+                        Ví dụ: giải đặc biệt XSMB là 98768 thì khách hàng có mã số 00768 là người trúng thưởng.
+                        </span>
+                        <br/>
+                    </li>
+
+                    <li class="listyle1" style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;"><span>Có từ 0-9999 người tham dự thì khách hàng nào có bốn chữ số đầu tiền trong mã trúng thưởng trùng với bốn chữ số đầu tiên trong giải đặc biệt XSMB tính từ phải qua trái là người trúng thưởng.</span>
+                        <br/>
+                        <span>
+                        Ví dụ: giải đặc biệt XSMB là 98768 thì khách hàng có mã số 08768 là người trúng thưởng.
+                        </span>
+                        <br/>
+
+                    </li>
+                    <li class="listyle1" style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;"><span>Có từ 0-99999 người tham dự thì khách hàng nào có mã trúng thưởng trùng  giải đặc biệt XSMB tính từ trái qua phải là người trúng thưởng.</span>
+                        <br/>
+                        <span>
+                        Ví dụ: giải đặc biệt XSMB là 98768 thì khách hàng có mã số 98768 là người trúng thưởng.
+                        </span>
+                        <br/>
+
+                    </li>
+                </ul>
+
+                <span> Nếu không có khách hàng nào trúng thưởng (ví dụ: có 98766 người tham dự mà giải đặc biệt XSMB là 98768) thì Soloyo sẽ chọn ngẫu nhiên một khách hàng trong số các khách đã tham dự là người trúng thưởng. Chương trình này sẽ được livestream trên Fanpage của Soloyo và sử dụng công nghệ chọn của bên thứ ba.</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 style="margin-top: 40px">Quy định trúng thưởng khác</h2>
+            <div class="col-md-12">
+              <span>  Ngoài việc khách hàng tham dự phải có mã trúng thưởng đúng theo quy định ở trên thì khách hàng cần có
+                các điều kiện sau:
+                  </span>
+                <ul style="list-style-type: square;">
+                    <li style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;">Tính đến 21h ngày 14-12-2018 bài chia sẻ về mã trúng thưỏng vẫn còn trên
+                        tường của khách hàng.
+                    </li>
+                    <li style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;">Tính đến 21h ngày 14-12-2018 khách hàng đã like fanpage của Soloyo
+                    </li>
+                    <li style="    text-indent: 10px;
+    text-align: justify;margin-top: 10px;">Đã chia sẻ Chương trình trải nghiệm thiết kế ốp lưng nhận vé cổ vũ đội tuyển
+                        Việt Nam của
+                        Soloyo
+                    </li>
+                </ul>
+                <span>
+                    Trong trường hợp khách hàng trúng thưởng vi phạm 1 trong 3 điều trên Soloyo sẽ chọn ngẫu nhiên một trong số các khách hàng đã tham dự chương trình còn lại để trao giải
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 style="margin-top: 40px">Trao giải</h2>
+            <div class="col-md-12">
+                <span>Soloyo sẽ trao giải thưởng đến tận tay khách hàng: trực tiếp hoặc qua chuyển phát nhanh tuỳ thuộc vào mong muốn của khách hàng trúng thưởng</span>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 50px;margin-right: 20px">
+            <div class="col-md-12">
+                <button id="btn-join-aff" class="btn-soloyo"
+                        style="float: right;padding-left: 10px;padding-right: 10px">Tham gia và nhận mã
+                    trúng thưởng
+                </button>
+            </div>
+
+            <div class="col-md-12">
+                <table id="tb-loading-design" style="display: none;float: right">
+                    <tr>
+                        <td>
+                            <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading"
+                                 style="width: 48px">
+                        </td>
+                        <td>
+                            <div class="loading-design">
+
+                                <span style="font-family: vietnam_font; font-size: 14px; font-weight: normal">Vui lòng đợi trong giây lát.Đang đăng ký tham gia.</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-12" id="save-success-msg" style=" display: none; float: right;margin-top: 20px;">
+                <span style=" float: right;font-family: vietnam_font; font-size: 14px; font-weight: normal;color:red"></span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

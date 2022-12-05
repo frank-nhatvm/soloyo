@@ -1,0 +1,210 @@
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+?>
+
+<div class="iguide-design-container">
+
+    <h2>Hướng dẫn thiết kế ốp lưng</h2>
+
+    <div>
+        <div class="row iguide-main">
+            <div class="tab-controller-iguide" onclick="toggleIGuideImage()" style="cursor: pointer">
+                <span>
+                Sử dụng hình ảnh để thiết kế ốp lưng    
+                </span>
+                <img src="<?php echo $this->getSkinUrl('images/arrow_down.png') ?>" alt="arrow">
+            </div>
+            <div id="iguide-design-image-container" style="display: none">
+
+                <div class="iguide-row">
+                    <h4>Tải ảnh lên</h4>
+                    <div class="row iguide-row-content">
+                        <div class="col-md-8">
+                            <span>Để ốp lưng in ra có chất lượng tốt: hình ảnh sắc nét, màu sắc đẹp thì bạn cần có một bức ảnh thật tốt. </span>
+                            <br/>
+                            <span>Hãy đọc bài hướng dẫn cách chọn ảnh để làm việc với công cụ tự thiết kế ốp lưng điện thoại của Soloyo.
+                    </span>
+                            <br/>
+                            <span>Sau khi đã có được bức ảnh tốt, bạn bấm vào Tải ảnh lên và tải ảnh lên như hình bên:</span>
+                            <br/>
+                            <span>Lưu ý:</span>
+                            <br/>
+                            <span>
+                        Ở phiên bản hiện tại Soloyo chỉ cho sử dụng một ảnh để thiết kế ốp lưng.
+                    </span>
+                            <br/>
+                            <span>
+                       Nếu bạn muốn sử dụng nhiều ảnh, bạn có thể sử dụng một vài phần mềm và ghép chúng lại trước khi tải lên Soloyo.
+                    </span>
+                        </div>
+                        <div class="col-md-4">
+                            <img style="width: 100%"
+                                 src="<?php echo $this->getSkinUrl('images/huong-dan-tai-anh-len.png'); ?>"
+                                 alt="hướng dẫn tải ảnh lên">
+                        </div>
+                    </div>
+                </div>
+                <div class="iguide-row">
+                    <h4>Điều chỉnh ảnh phù hợp với ốp lưng</h4>
+                    <div class="row iguide-row-content">
+
+                        <div class="col-md-6">
+                            <div style="font-weight: bold">
+                                <i class="material-icons">rotate_90_degrees_ccw</i> <span>Xoay ảnh</span>
+                            </div>
+                            <div style="min-height: 162px;margin-top: 5px">
+                                <span>Để xoay ảnh bạn bấm giữ và xoay như hình dưới.</span>
+                            </div>
+                            <div>
+                                <img style="width: 80%"
+                                     src="<?php echo $this->getSkinUrl('images/image_guide1.png'); ?>"
+                                     alt="hướng dẫn xoay ảnh">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="font-weight: bold"><i class="material-icons">photo_size_select_large</i> <span>Phóng to, thu nhỏ ảnh</span>
+                            </div>
+                            <div style="margin-top: 5px">
+                                <span>Để phóng to hoặc thu nhỏ ảnh bạn bấm giữ chuột (hoặc tay khi sử dụng di động) và kéo về hướng tương ứng. </span>
+                                <br/>
+                                <span>Bạn có thể phóng to ảnh theo nhiều hướng khác nhau, tuy nhiên để bức ảnh không bị méo bạn nên kéo ở bốn góc để ảnh được phóng to hoặc thu nhỏ đều theo cả chiều dài và chiều rộng</span>
+                            </div>
+                            <div>
+                                <img style="width: 80%"
+                                     src="<?php echo $this->getSkinUrl('images/image_guide2.png'); ?>"
+                                     alt="hướng dẫn phóng to ảnh">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row iguide-main">
+
+            <div class="tab-controller-iguide" onclick="toggleIGuideText()" style="cursor: pointer">
+                <span>
+                Thêm chữ ký, slogan
+                    </span>
+                <img src="<?php echo $this->getSkinUrl('images/arrow_down.png') ?>" alt="arrow">
+            </div>
+            <div id="iguide-design-text-container" style="display: none" onclick="toggleIGuideText()">
+
+                <div class="iguide-row">
+                    <h4>Thêm chữ </h4>
+                    <div class="row iguide-row-content">
+
+                        <div class="col-md-6">
+                            <span>Bấm vào Thêm chữ để thêm chữ</span>
+                            <br/>
+                        </div>
+                        <div class="col-md-6">
+                            <img style="width: 80%"
+                                 src="<?php echo $this->getSkinUrl('images/huong-dan-them-chu.png') ?>"
+                                 alt="hướng dẫn thêm chữ">
+                        </div>
+                    </div>
+
+                    <div class="row iguide-row-content">
+                        <h4>Thay đổi nội dung</h4>
+                        <div class="col-md-6">
+                            <span>Nội dung mặc định là Soloyo. Để thay đổi bạn bấm vào ô như hình và nhập nội dung của bạn</span>
+                        </div>
+                        <div class="col-md-6">
+                            <img style="width: 80%"
+                                 src="<?php echo $this->getSkinUrl('images/huong-dan-nhap-noi-dung.png') ?>"
+                                 alt="hướng dẫn nhập nội dung">
+                        </div>
+                    </div>
+                    <div class="row iguide-row-content">
+
+                        <h4>Cũng giống như ảnh, bạn có thể xoay và phóng to chữ</h4>
+
+                        <div class="col-md-6">
+                            <img width="80%" src="<?php echo $this->getSkinUrl('images/guide_text1.png'); ?>"
+                                 alt="hướng dẫn xoay chữ">
+                        </div>
+
+                        <div class="col-md-6">
+                            <img width="80%" src="<?php echo $this->getSkinUrl('images/guide_text2.png'); ?>"
+                                 alt="hướng dẫn phóng to chữ">
+                        </div>
+
+                    </div>
+
+                    <div class="row iguide-row-content">
+
+                        <h4>Tạo phong cách cho chữ</h4>
+
+                        <div class="col-md-6">
+                            <span>Để thay đổi cỡ chữ, độ đậm của nét chữ hay sử dụng font khác bạn bấm vào như hình.</span>
+                            <br/>
+                            <span>Để tạo chữ ký hãy chọn font chữ ký phù hợp và nội dung nên là tiếng việt không dấu.</span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <img style="width: 80%"
+                                 src="<?php echo $this->getSkinUrl('images/huong-dan-tao-phong-cach-chu.png'); ?>"
+                                 alt="hướng dẫn thay đổi phong cách chữ">
+                        </div>
+
+                    </div>
+
+                    <div class="row iguide-row-content">
+
+                        <h4>Đổi màu</h4>
+                        <div class="col-md-6">
+                            <span>Để thay đổi màu chữ hoặc màu nền của chữ bạn thực hiện như hình.</span>
+                            <br/>
+                            <span>Ngoài việc chọn các màu đã có sẵn, bạn có thể nhập trực tiếp mã màu của mình vào ô màu chữ.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <img style="width: 80%"
+                                 src="<?php echo $this->getSkinUrl('images/huong-dan-doi-mau.png'); ?>"
+                                 alt="hướng dẫn đổi màu chữ">
+                        </div>
+                    </div>
+
+                    <div class="row iguide-row-content">
+                        <h4>Làm việc với nhiều đối tượng text</h4>
+                        <div class="col-md-6">
+                            <span>Để làm việc với Text nào bạn chỉ cần bấm vào icon Chỉnh sửa như hình.</span>
+                            <br/>
+                            <span>Trong trường hợp bạn đang làm việc với ảnh thì chữ sẽ bị che, để quay lại làm việc với Text bạn cũng bấm vào icon Chỉnh sửa.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <img style="width: 80%"
+                                 src="<?php echo $this->getSkinUrl('images/lam-viec-voi-nhieu-chu.png'); ?>"
+                                 alt="hướng dẫn làm việc với nhiều chữ">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function toggleIGuideImage() {
+        if ($j('#iguide-design-image-container').css('display') == 'none') {
+            $j('#iguide-design-image-container').css('display', 'block');
+        }
+        else {
+            $j('#iguide-design-image-container').css('display', 'none');
+        }
+    }
+
+    function toggleIGuideText() {
+        if ($j('#iguide-design-text-container').css('display') == 'none') {
+            $j('#iguide-design-text-container').css('display', 'block');
+        } else {
+            $j('#iguide-design-text-container').css('display', 'none');
+        }
+    }
+</script>

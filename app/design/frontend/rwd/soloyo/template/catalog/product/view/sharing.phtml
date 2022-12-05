@@ -1,0 +1,60 @@
+<?php
+
+?>
+
+<?php $_product = $this->getProduct(); ?>
+<?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product);
+
+$aff_player_code = Mage::getModel('core/session')->getAffPlayerCode();
+$aff_player_name = Mage::getModel('core/session')->getAffPlayerName();
+$update_aff_url = Mage::getUrl('campaign/index/update_after_share',array('_secure'=>true));
+$campaign_id = Mage::getModel('core/session')->getCampaignId();
+$campaign = Mage::getModel('campaign/campaign')->load($campaign_id);
+$campaign_name = $campaign->getName();
+$campaign_url = $campaign->getUrl();
+$url_image_share = Mage::helper('campaign')->getUrlImageCampaign(). DS.$campaign->getImageShare();
+?>
+
+<?php if($aff_player_code): ?>
+    <script>
+
+        var aff_player_code = '<?php echo $aff_player_code; ?>';
+        var aff_player_name  = '<?php echo $aff_player_name; ?>';
+        var update_after_share = '<?php echo $update_aff_url; ?>';
+        var campaign_name = '<?php echo $campaign_name; ?>';
+        var campaign_url = '<?php echo $campaign_url; ?>';
+        var url_image_share = '<?php echo $url_image_share; ?>';
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '279145496124660',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v3.2'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div>
+        <a style="
+     font-family: vietnam_font;
+     font-size: 14px;
+     font-weight: 400;
+       float: right;
+    text-decoration: none;
+    cursor: pointer;
+    border: solid 1px;
+    padding: 15px 15px;
+    border-radius: 12px;
+    margin-top: 20px;" id="btnfacebook-share">Chia sẻ và nhận mã trúng thưởng</a>
+    </div>
+<?php endif; ?>
+

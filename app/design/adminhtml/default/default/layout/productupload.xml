@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <productuploadadmin_adminhtml_imageprint_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_imageprint" name="imageprint" />
+        </reference>
+    </productuploadadmin_adminhtml_imageprint_index>
+    <productuploadadmin_adminhtml_productupload_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_productupload" name="productupload" />
+        </reference>
+    </productuploadadmin_adminhtml_productupload_index>
+
+    <productuploadadmin_adminhtml_designer_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_designer" name="designer" />
+        </reference>
+    </productuploadadmin_adminhtml_designer_index>
+
+    <productuploadadmin_adminhtml_designer_casedesign>
+        <block type="core/text_list" name="root">
+            <block type="productupload/adminhtml_designer_edit_tab_casedesign" name="productupload.adminhtml.designer.edit.tab.casedesign" />
+        </block>
+    </productuploadadmin_adminhtml_designer_casedesign>
+
+    <productuploadadmin_adminhtml_designer_transaction>
+        <block type="core/text_list" name="root">
+            <block type="productupload/adminhtml_designer_edit_tab_transaction" name="productupload.adminhtml.designer.edit.tab.transaction" />
+        </block>
+    </productuploadadmin_adminhtml_designer_transaction>
+
+    <productuploadadmin_adminhtml_transaction_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_designertransaction" name="designer" />
+        </reference>
+    </productuploadadmin_adminhtml_transaction_index>
+    <productuploadadmin_adminhtml_requestproduct_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_requestproduct" name="requestproduct" />
+        </reference>
+    </productuploadadmin_adminhtml_requestproduct_index>
+
+    <productuploadadmin_adminhtml_mockup_index>
+        <reference name="content">
+            <block type="productupload/adminhtml_mockup" name="mockup" />
+        </reference>
+    </productuploadadmin_adminhtml_mockup_index>
+
+</layout>

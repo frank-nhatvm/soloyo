@@ -1,0 +1,63 @@
+<?php
+
+$request_brand_url = Mage::getUrl('brandmodel/index/requestbrand_post', array('_secure' => true));
+
+?>
+
+
+<div class="row">
+    <h1>Yêu cầu cập nhật dòng điện thoại</h1>
+</div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <input class="required-entry validate-email" id="request-email" type="text" name="email" placeholder="Email">
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-6">
+            <input maxlength="11" minlength="9" class="validate-length maximum-length-11 minimum-length-9 validate-digits  required-entry validate-number" id="request-phone" type="text" name="phone" placeholder="Số điện thoại">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 15px">
+        <div class="col-md-6">
+
+            <input id="request-requirement" type="area" name="requirement" placeholder="Yêu cầu của bạn" style="width: 100%; min-height: 100px;">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-6">
+
+            <div id="message-request">
+                <span></span>
+               <a style="display: none" href="<?php echo Mage::getBaseUrl(); ?>">Bấm vào đây để chuyển về trang chủ.</a>
+            </div>
+
+            <table id="tb-loading" style="display: none;float: right;">
+                <tr>
+                    <td>
+                        <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading"
+                             style="width: 48px">
+                    </td>
+                    <td>
+                        <div class="loading-design">
+
+                            <span>Đang gửi yêu cầu của bạn tới Soloyo. Vui lòng đợi trong giây lát.</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <button id="btn-send-request" class="btn-soloyo" style="float: right">Gửi yêu cầu</button>
+        </div>
+    </div>
+
+<script>
+    var request_brand_url = '<?php echo $request_brand_url; ?>';
+</script>

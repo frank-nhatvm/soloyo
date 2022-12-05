@@ -1,0 +1,97 @@
+<?php
+$designer = Mage::helper('productupload')->getDesigner();
+$status = $designer->getStatus();
+$formattedPrice = Mage::helper('core')->currency($designer->getBalance(), true, false);
+?>
+<?php if ($status == 1): ?>
+
+    <div class="account-info">
+
+        <div class="button-container col-md-12">
+            <button id="btn-edit">Edit</button>
+
+            <button id="btn-update" style="display: none">Update</button>
+            <button type="submit" id="btn-cancel" style="display: none">Cancel</button>
+        </div>
+        <div id="container-form">
+            <form method="post" action="<?php echo $this->getUpdateUrl(); ?>" name="update_info_form" id="update_info_form">
+                <input type="hidden" name="form_key"
+                       value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+
+                <input type="hidden" name="designer[designer_id]" value="<?php echo $designer->getId() ?>">
+
+                <div>
+                    <div class="label-login">
+                        <span>Số dư</span>
+                    </div>
+                    <span>
+
+                    <input name="designer[balance]" disabled id="balance" type="text" value="<?php echo $formattedPrice ?>"
+                           class=" validate-length " title="Balance"/>
+                </span>
+                </div>
+
+                <div>
+                    <div class="label-login">
+                        <span>Email</span>
+                    </div>
+                    <input name="designer[email]" id="email" type="text" value="<?php echo $designer->getEmail() ?>"
+                           disabled
+                           class="designer-input validate-length   required-entry  " title="Email"/>
+                </div>
+
+                <div>
+                    <div class="label-login">
+                        <span>Tên chủ thẻ</span>
+                    </div>
+                    <input name="designer[bank_owner_name]" id="bank_owner_name" type="text"
+                           value="<?php echo $designer->getBankOwnerName() ?>"
+                           disabled
+                           class="designer-input validate-length   required-entry  " title="Bank owner name"/>
+                </div>
+
+                <div>
+                    <div class="label-login">
+                        <span>Số tài khoản</span>
+                    </div>
+                    <input name="designer[bank_account_number]" id="bank_account_number" type="text"
+                           value="<?php echo $designer->getBankAccountNumber() ?>"
+                           disabled
+                           class="designer-input validate-length   required-entry  " title="Bank account number"/>
+                </div>
+
+                <div>
+                    <div class="label-login">
+                        <span>Tên ngân hàng</span>
+                    </div>
+                    <input name="designer[bank_name]" id="bank_name" type="text"
+                           value="<?php echo $designer->getBankName() ?>"
+                           disabled
+                           class="designer-input validate-length   required-entry  " title="Bank name"/>
+                </div>
+
+                <div class="bank-area">
+                    <div class="label-login">
+                        <span>Chi nhánh</span>
+                    </div>
+                    <input name="designer[bank_area]" id="bank_area" type="text"
+                           value="<?php echo $designer->getBankArea() ?>"
+                           disabled
+                           class="designer-input validate-length   required-entry  " title="Bank name"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+<?php else: ?>
+
+    <div.notactive>
+        <span>Đăng ký của bạn đã được gửi tới Soloyo. Vui lòng đợi admin phê duyệt tài khoản của bạn.</span>
+    </div.notactive>
+
+<?php endif; ?>
+
+
+
+

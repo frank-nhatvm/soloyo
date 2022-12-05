@@ -1,0 +1,101 @@
+<script>
+    var home_url = '<?php echo $this->getUrl(); ?>';
+    var search_device_url = '<?php echo Mage::getUrl('brandmodel/index/index', array('_secure' => true)) ?>';
+</script>
+
+<header id="header-top" class="box-shadow-class">
+
+
+    <?php if (Mage::helper('soloyo')->isMobileOrTablet()): ?>
+
+        <div id="menu-header-control">
+
+
+            <span style="margin-left: 11px; max-width: 10%;font-size:30px;color: #0bb5a2;" onclick="openNav()">&#9776;</span>
+
+
+            <span class="main-logo" style="font-size: 16px; position: absolute;top: 5px;margin-left: 15px" onclick="goHome()">Soloyo</span>
+            <span class="slogan" style="position: absolute;top: 25px;margin-left: 15px" onclick="goHome()">Ốp lưng cho giới trẻ</span>
+
+            <a href="javascript:void(0);"  id="menu-top-search-icon" style="position: absolute; right: 11px;top: 15px">
+                <i class="material-icons top-control">search</i>
+            </a>
+<!--            <input type="text" placeholder="Tìm ngay" style="    position: absolute;-->
+<!--    top: 11px;-->
+<!--    border: 1px solid #0bb5a2;-->
+<!--    right: 15px;-->
+<!--    font-weight: 500;-->
+<!--    /* color: #0bb5a2; */-->
+<!--    width: 40% !important;-->
+<!--    height: 32px !important;-->
+<!--    font-size: 14px;"/>-->
+
+        </div>
+
+    <?php else: ?>
+        <div id="header-control" class="row">
+
+            <div class="col-md-2" id="menu-top-logo" style="cursor: pointer">
+                <div class="main-logo">Soloyo</div>
+                <div class="slogan">Ốp lưng cho giới trẻ</div>
+            </div>
+
+
+            <div class="col-md-offset-8" id="header-right">
+                <div class="col-md-1" id="menu-top-search">
+                    <?php echo $this->getChildHtml('topSearch'); ?>
+                </div>
+                <div class="col-md-1" id="menu-top-account">
+                    <?php if (!$this->helper('customer')->isLoggedIn()): ?>
+                        <div>
+                            <a href="<?php echo $this->getUrl('customer/account/login'); ?>">
+                                <i class="material-icons top-control">person</i>
+                            </a>
+                        </div>
+
+                    <?php else: ?>
+                        <div>
+                            <a href="javascript:void(0);" id="show-account-menu">
+                                <i class="material-icons top-control">person</i>
+                            </a>
+                        </div>
+
+                        <div class="list-account-action" style="display: none">
+                            <ul>
+                                <li><a href="<?php echo $this->getUrl('customer/account/'); ?>"> Thông tin tài
+                                        khoản </a>
+                                </li>
+                                <li><a href="<?php echo $this->getUrl('customer/address/'); ?>"> Địa chỉ giao hàng </a>
+                                </li>
+                                <li><a href="<?php echo $this->getUrl('sales/order/history'); ?>"> Đơn hàng </a></li>
+                                <?php if (Mage::helper('productupload')->isDesigner()): ?>
+                                    <li><a href="<?php echo $this->getUrl('productupload/designer/index'); ?>">
+                                            Designer </a></li>
+                                <?php endif; ?>
+
+                                <!--                            <li><a href="-->
+                                <?php //echo $this->getUrl('sales/order/history'); ?><!--"> Cộng tác viên </a></li>-->
+
+                                <li><a href="<?php echo $this->getUrl('customer/account/logout'); ?>"> Đăng xuất </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    <?php endif; ?>
+                </div>
+                <div class="cartData class-left col-md-1" id="menu-top-cart">
+                    <?php echo $this->getChildHtml('quickcart') ?>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <?php echo $this->getChildHtml('topMenu') ?>
+        </div>
+    <?php endif; ?>
+
+
+
+
+
+</header>

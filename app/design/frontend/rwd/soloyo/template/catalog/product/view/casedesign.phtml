@@ -1,0 +1,355 @@
+<?php
+
+?>
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+
+
+$case_design = $this->getCaseDesign($_product->getId());
+
+$path = Mage::helper('casedesign')->getUrlPathCasedesignTemplate($_product->getId());
+
+$scale = 0.25;
+$real_area_width = $case_design->getDesignAreaWidth();
+$real_area_height = $case_design->getDesignAreaHeight();
+$design_area_width = $case_design->getDesignAreaWidth() * $scale;
+$design_area_height = $case_design->getDesignAreaHeight() * $scale;
+
+
+
+?>
+
+<script>
+    var overlay_image_url = '<?php echo $path . $case_design->getOverlayImage() ?>';
+    var background_image_url = '<?php echo $path . $case_design->getBackgroundImage() ?>';
+
+    var base_url = '<?php echo Mage::getBaseUrl(); ?>';
+    var customer_upload_url = '<?php echo Mage::getUrl('casedesign/index/customer_upload',array('_secure'=>true)) ?>';
+    var save_design_url = '<?php echo Mage::getUrl('casedesign/index/save_design',array('_secure'=>true))  ?>';
+    var product_id = '<?php echo $_product->getId() ?>';
+</script>
+
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/casedesign/libs/fabric.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/casedesign/libs/jquery-1.12.4.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/casedesign/libs/jquery-ui.js') ?>"></script>
+
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/bootstrap.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/fontfaceobserver.js') ?>"></script>
+<script>jQuery.noConflict();</script>
+<script type="text/javascript"
+        src="<?php echo $this->getJsUrl('soloyo/casedesign/libs/jquery.ui.touch-punch.min.js') ?>"></script>
+<script type="text/javascript"
+        src="<?php echo $this->getJsUrl('soloyo/casedesign/libs/jquery.ui.rotatable.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('soloyo/casedesign/casededign_product.js') ?>"></script>
+
+
+
+<div class="casedesign-action">
+
+
+
+    <div class="tabcontent" >
+
+        <div  id="added_text_container" style="width: 50%;">
+            <div id="a_add_new_text" style="position: relative">
+                <a href="javascript:void(0)" style="text-decoration: none">
+                    <i class="material-icons" style="position: absolute;top: 15px; color: #636363;">add_circle</i>
+                    <span style=" color: #636363;position: absolute;left: 30px;top: 15px;font-family: vietnam_font;font-weight: 500">Thêm chữ</span>
+                </a>
+            </div>
+        </div>
+
+        <div id="start-upload-customer-image" class="tabcontent-column" style="width: 50%;float: right">
+            <i class="material-icons">cloud_upload</i>
+            <span>Tải ảnh lên</span>
+        </div>
+
+
+    </div>
+
+    <div id="warning-customer-image" style="display: none">
+        <span style="font-family: vietnam_font; font-weight: 200; font-size: 10px;">Chỉ sử dụng một ảnh cho thiết kế.Nếu muốn dùng ảnh khác, vui lòng xoá ảnh hiện tại</span>
+    </div>
+
+    <div class="custom-popup popupbottom" id="guide-body-active-content" >
+        <span class="custom-popuptext" >Bấm vào đây để bắt đầu chỉnh sửa Text</span>
+    </div>
+
+    <div class="custom-popup popupbottom" id="guide-introduce" >
+        <span class="custom-popuptext" >
+        </span>
+
+    </div>
+
+    <div class="tabcontent" id="active-content-container">
+        <div class="uploaded-images" id="uploaded-images-container" style="display: none">
+            <img id="customer_uploaded_image" src="" alt="customer-uploaded-image"
+                 style="border: solid 1px #f2f3f5; height: 48px; display: inline;margin: 10px 10px;">
+
+            <a id="delete-customer-uploaed-image" href="javascript:void(0);"><i class="material-icons"
+                                                                                style="width: 24px;color:#636363;float: right;margin-top: 20px; margin-right:20px">delete_forever</i></a>
+
+            <a id="edit-customer-uploaded-image" href="javascript:void(0);" ><i class="material-icons" style="width: 24px; float: right;margin-right: 40px; margin-top: 20px">edit</i></a>
+        </div>
+        <div id="body_added_text" style="display: none">
+        </div>
+    </div>
+
+    <div class="tabcontent" id="add_text_design" style="display: none">
+        <input type="hidden" id="actived-text-id">
+
+        <div class="custom-popup popupbottom" id="guide-text-group" >
+            <span class="custom-popuptext" >Bấm vào đây để sửa Text</span>
+        </div>
+
+        <div class="text-group">
+            <div class="text-group-action text-group-selected" id="text-group-content">
+                <i class="material-icons">title</i>
+            </div>
+            <div class=" text-group-action" id="text-group-font">
+                <i class="material-icons">format_size</i>
+            </div>
+            <div class=" text-group-action" id="text-group-color">
+                <i class="material-icons">format_color_fill</i>
+            </div>
+
+            <!--            <div class=" text-group-action" id="text-group-function">-->
+            <!--                <i class="material-icons">functions</i>-->
+            <!--            </div>-->
+        </div>
+
+        <div class="text-content-container texcontent-row" id="text-body-content">
+
+            <input type="text" name="user_text_content" id="user-text-content" value="Soloyo" >
+
+        </div>
+
+        <div class="custom-popup popuptop" id="guide-user-text-content" >
+            <span class="custom-popuptext" >Nhập nội dung của bạn tại đây</span>
+        </div>
+
+        <div class="text-content-container" id="text-body-font" style="display: none">
+
+            <div class=" texcontent-row textbodyfont-column" id="text-font-container">
+                <span>Loại font chữ</span>
+                <select name="text-fontfamily-select" id="text-fontfamily-select">
+
+                    <option value="vietnam_font"><span style="font-family: vietnam_font">Việt Nam font </span></option>
+                    <option value="chuky1"><span style="font-family: chuky1">Chữ ký 1</span></option>
+                    <option value="chuky2"><span style="font-family: chuky2">Chữ ký 2</span></option>
+                    <option value="chuky3"><span style="font-family: chuky3">Chữ ký 3</span></option>
+                    <option value="chuky4"><span style="font-family: chuky4">Chữ ký 4</span></option>
+                    <option value="thuphap"><span style="font-family: thuphap">Thư pháp</span></option>
+                    <option value="slogan"><span style="font-family: slogan">Slogan</span></option>
+                    <option value="don_gian"><span style="font-family: don_gian">Đơn giản</span></option>
+                    <option value="fantasy"><span style="font-family: fantasy">Fantacy</span></option>
+                    <option value="net_but_long"><span style="font-family: net_but_long">Nét bút lông</span></option>
+                    <option value="nhe_nhang"><span style="font-family: nhe_nhang">Nhẹ nhàng</span></option>
+                    <option value="truyen_tranh"><span style="font-family: truyen_tranh">Truyện tranh</span></option>
+                    <option value="vni_chops"><span style="font-family: vni_chops">Việt Nam 2</span></option>
+                    <option value="vni_hobo"><span style="font-family: vni_hobo">Việt Nam 3</span></option>
+                    <option value="vni_mandalay"><span style="font-family: vni_mandalay">Việt Nam 4</span></option>
+                    <option value="arial"><span style="font-family: Arial;">Arial</span></option>
+
+                </select>
+            </div>
+            <div class=" texcontent-row textbodyfont-column" id="text-size-container">
+                <span>Kích thước chữ</span>
+                <select name="user_text_size" id="user-text-size">
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">12</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="24">24</option>
+                    <option value="30">30</option>
+                    <option value="34">34</option>
+                    <option value="48">48</option>
+                    <option value="52">52</option>
+                    <option value="72">72</option>
+                </select>
+            </div>
+            <div class=" texcontent-row textbodyfont-column" id="text-wieght-container">
+                <span>Độ đậm nét chữ</span>
+
+                <select name="user_text_weight" id="user-text-weight">
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="500">500</option>
+                    <option value="600">600</option>
+                    <option value="700">700</option>
+                    <option value="900">900</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="text-content-container" id="text-body-color" style="display: none">
+
+            <div class="texcontent-row textbodycolor-column">
+                <span>Màu chữ</span>
+
+                <div id="casedesign-textcolor"></div>
+            </div>
+
+            <div class="texcontent-row textbodycolor-column">
+
+                <span>Màu nền của chữ</span>
+                <div id="casedesign-backgroundcolor"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div id="modal_upload_image" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="font-weight: bold; font-size: 14px;font-family: vietnam_font">Chọn một ảnh từ máy của bạn để tải lên</p>
+                </div>
+                <div class="modal-body">
+                    <input type="file" name="custom_image_user" id="custom_image_user" accept="image/*">
+                    <img id="preview-customer-image" src="#" alt="Preview customer image" style="display: none; width: 48px">
+                    <span id="message-upload-customer-image" style="display: none"></span>
+                </div>
+                <div class="modal-footer">
+
+                    <table id="tb-upload-image" style="display: none">
+                        <tr>
+                            <td>
+                                <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading"
+                                     style="width: 48px">
+                            </td>
+                            <td>
+                                <div class="loading-design">
+                                    <span>Đợi xíu. Đang tải ảnh của bạn lên hệ thống</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class=" button-modal-footer" id="btn-cancel-upload">
+                        <span>Không tải ảnh lên nữa</span>
+                    </div>
+
+                    <div class="button-disable button-modal-footer" id="btn-upload-image">
+                        <span>Tải ảnh lên</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" role="dialog" id="modal-guide-design-text" data-backdrop="static" data-keyboard="false">
+    <div class="modal-content" style="margin-top: 10px !important;margin-bottom: 30px !important;">
+        <div class="modal-body">
+            <img class="modal-image-guide" src="<?php echo $this->getSkinUrl('images/guide_text1.png'); ?>" alt="guide-text" id="img-guide-text1">
+            <img class="modal-image-guide" src="<?php echo $this->getSkinUrl('images/guide_text2.png'); ?>" alt="guide-text" id="img-guide-text2" style="display: none">
+        </div>
+        <div class="modal-footer">
+            <div class="button-modal-footer" id="btn-next-guide-text">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">Tiếp theo</span></a>
+            </div>
+            <div class="button-modal-footer" id="btn-back-guide-text" style="display: none">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">Quay lại</span></a>
+            </div>
+            <div class="button-modal-footer" id="btn-done-guide-text" style="display: none">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">OK. Đã hiểu</span></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" role="dialog" id="modal-guide-design-image" data-backdrop="static" data-keyboard="false">
+    <div class="modal-content" style="margin-top: 10px !important;margin-bottom: 30px !important;">
+        <div class="modal-body">
+            <img class="modal-image-guide" src="<?php echo $this->getSkinUrl('images/image_guide1.png'); ?>" alt="guide-image" id="img-guide-image1" >
+            <img class="modal-image-guide" src="<?php echo $this->getSkinUrl('images/image_guide2.png'); ?>" alt="guide-image" id="img-guide-image2" style="display: none">
+        </div>
+        <div class="modal-footer">
+            <div class="button-modal-footer" id="btn-next-guide-image">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">Tiếp theo</span></a>
+            </div>
+            <div class="button-modal-footer" id="btn-back-guide-image" style="display: none">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">Quay lại</span></a>
+            </div>
+            <div class="button-modal-footer" id="btn-done-guide-image" style="display: none">
+                <a href="javascript:void(0)" ><span style="color: #ffffff;font-family: vietnam_font;font-size: 14px;font-weight: normal">OK. Đã hiểu</span></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="casedesign-container" style="border: solid 1px grey">
+
+    <div class="casedesign-canvas-container">
+        <canvas id="canvas-desgin"
+                width="<?php echo $design_area_width . 'px' ?>"
+                height="<?php echo $design_area_height . 'px' ?>"></canvas>
+    </div>
+
+    <div class="casedeisgn-canvas-print-container" style="display: none;">
+        <canvas id="canvas-print" width="<?php echo $real_area_width ?>" height="<?php echo $real_area_height ?>">
+
+        </canvas>
+    </div>
+
+</div>
+
+
+<div class="custom-popup popupbottom" id="guide-save-design" >
+        <span class="custom-popuptext" >
+            Sau khi chỉnh sửa hoàn thành, bấm vào đây để lưu thiết kế.
+        </span>
+
+</div>
+
+<div class="casedesign-button" id="casedesign-button-container" style="display: none">
+
+    <div id="save-success-msg" style="display: none">
+        <span style="font-family: vietnam_font; font-size: 12px; font-weight: normal"></span>
+    </div>
+
+    <a id="a-preview" href="javascript:void(0);" style="text-decoration: none">
+        <div class="button-casedesign" id="preview-casedesign" style="float: left">
+            <span>Xem thử</span>
+
+        </div>
+    </a>
+    <a id="a-savedesign" href="javascript:void(0);" style="text-decoration: none">
+        <div class="button-casedesign" id="savedesign">
+            <span>Lưu thiết kế</span>
+
+        </div>
+    </a>
+    <table id="tb-loading-design" style="display: none">
+        <tr>
+            <td>
+                <img src="<?php echo $this->getSkinUrl('images/loading.gif'); ?>" alt="loading" style="width: 48px">
+            </td>
+            <td>
+                <div class="loading-design">
+
+                    <span>Vui lòng đợi trong giây lát. Hệ thống đang lưu thiết kế của bạn.</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+</div>
+

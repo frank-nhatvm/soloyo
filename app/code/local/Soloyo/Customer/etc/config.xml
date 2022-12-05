@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <soloyo_customer before="Mage_Customer">Soloyo_Customer</soloyo_customer>
+                    </modules>
+
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+</config>

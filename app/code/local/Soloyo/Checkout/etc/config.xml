@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <frontend>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <soloyo_checkout before="Mage_Checkout">Soloyo_Checkout</soloyo_checkout>
+                    </modules>
+
+                </args>
+            </checkout>
+        </routers>
+    </frontend>
+</config>

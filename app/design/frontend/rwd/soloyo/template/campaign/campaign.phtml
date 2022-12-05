@@ -1,0 +1,100 @@
+<?php
+$campaign_id = $this->getRequest()->getParam('id');
+?>
+
+
+
+<?php if ($this->isRunning()): ?>
+    <div class="container" style="color: #2d2d2d;font-family: vietnam_font">
+
+        <div class="row banner-aff">
+            <img style="width: 100%" src="<?php echo $this->getBanner() ?>" alt="banner campaign">
+        </div>
+
+        <div style="margin-top: 50px;    text-align: justify;">
+
+            <div>
+                <h2>Giải thưởng</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php echo $this->getAdwardText(); ?>
+                    </div>
+                    <div class="col-md-6">
+                        <img style="height: 50%;width: 80%"
+                             src="<?php echo $this->getAdwardImage() ?>"
+                             alt="Vsmart Active 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h2 style="margin-top: 40px">Cách thức xác định trúng thưởng</h2>
+                <div class="col-md-12">
+                    <?php echo $this->getRuleWin(); ?>
+                </div>
+            </div>
+
+            <?php $rule_win_other = $this->getRuleWinOther(); ?>
+
+            <?php if ($rule_win_other): ?>
+                <div class="row">
+                    <h2 style="margin-top: 40px">Quy định trúng thưởng khác</h2>
+                    <div class="col-md-12">
+
+                        <?php echo $rule_win_other; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php $other_title = $this->getOtherTitle(); ?>
+            <?php if ($other_title): ?>
+                <div class="row">
+                    <h2 style="margin-top: 40px"><?php echo $other_title; ?> </h2>
+                    <div class="col-md-12">
+                        <?php echo $this->getOtherText(); ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="row" style="margin-top: 50px;margin-right: 20px">
+                <div style="margin-top: 10px;color: #0bb5a2;display: inline;float: left;">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <span style="margin-left: 5px">Hỏi đáp: </span><a
+                            href="http://m.me/soloyo.vn">m.me/soloyo.vn</a>
+                </div>
+                <a style="background: #0bb5a2;font-size: 18px;font-family: vietnam_font; padding: 5px 15px; color: #fff !important;float: right;border-radius: 22px;cursor: pointer" href="<?php echo Mage::getBaseUrl() ?>"> Tìm và mua</a>
+            </div>
+
+            <?php $products = Mage::helper('soloyo')->getRecentlyProduct(); ?>
+
+            <?php if ($products && count($products)): ?>
+                <div class="row" style="margin-top: 20px">
+                    <div>
+                        <h2 style="    font-family: vietnam_font;font-size: 18px;font-weight: bold;color: #2d2d2d">Các
+                            thiết kế mới nhất</h2>
+                    </div>
+
+                    <div style="margin-top: 10px" id="owl-recently-product-tet" class="owl-carousel">
+                        <?php foreach ($products as $product): ?>
+                            <div style="margin-right: 10px;">
+                                <a href="<?php echo $product['url'] ?>" title="<?php echo $product['name'] ?>">
+                                    <img style="border: solid 1px #f2f3f5;max-width: 100%"
+                                         src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"/>
+                                </a>
+                                <h3 style="font-size: 16px;font-weight: 400;width: 100%;color: #2d2d2d;text-transform: none;margin-top: 10px;font-family: vietnam_font;text-align: center;">
+                                    <?php echo $product['name'] ?>
+                                </h3>
+                            </div>
+
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+<?php else: ?>
+    <div class="container">
+        <span>Chương trình này đã kết thúc. Hãy tới <a href="https://www.facebook.com/soloyo.vn"> fanpage </a> để tìm hiểu các chương trình khác của Soloyo</span>
+    </div>
+<?php endif; ?>

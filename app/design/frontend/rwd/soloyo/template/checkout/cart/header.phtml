@@ -1,0 +1,23 @@
+<?php $_cartQty = count($this->getRecentItems($_cartQty)); ?>
+<?php
+$_items = $this->getRecentItems($_cartQty);
+if (count($_items)):
+    ?>
+    <a href="<?php echo $this->getUrl('checkout/cart') ?>" id="shopping_cart_added" class="fLeft">
+        <i class="material-icons top-control">local_grocery_store</i>
+        <span class="menu-top-cart-item-count" <?php if (empty($_cartQty)): echo 'style="display:none"' ?><?php endif ?> ><?php print (!empty($_cartQty)) ? $_cartQty : '0'; ?>
+        </span>
+    </a>
+<?php else: ?>
+
+
+    <a href="javascript:void(0);" id="shopping_cart" class="fLeft">
+        <i class="material-icons top-control">local_grocery_store</i>
+        <span class="menu-top-cart-item-count" <?php if (empty($_cartQty)): echo 'style="display:none"' ?><?php endif ?> ><?php print (!empty($_cartQty)) ? $_cartQty : '0'; ?>
+        </span>
+    </a>
+    <div id="addedshCartItems" style="display: none">
+        <div class="addedCartRow clearfix">Bạn chưa có sản phẩm nào trong giỏ hàng</div>
+    </div>
+<?php endif ?>
+

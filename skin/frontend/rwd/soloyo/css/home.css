@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.soloyo-home {
+    width: 100%;
+}
+
+.banner-home {
+    padding: 0px 0px;
+    margin-top: 15px;
+}
+
+@media (max-width: 1023px) {
+
+}
+
+.container {
+    margin-top: 10px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.home-productlist {
+    margin-top: 20px;
+}
+
+.home-category {
+    margin-top: 20px;
+}
+
+.cac-chu-de .first {
+    margin-right: 15px;
+}
+
+.cac-chu-de .third {
+    margin-left: 15px;
+}
+
+.title-h2-home h2 {
+
+    font-family: vietnam_font;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+.row-home-productlist {
+    margin-top: 10px;
+}
+
+.line-home {
+
+    height: 3px;
+    width: 100px;
+    background-color: #0bb5a2;
+    margin-top: 18px;
+}
+
+
+
+hr {
+    margin-bottom: 0px !important;
+
+}
+
+.home-cate {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    float: left;
+
+}
+
+.title-category-home {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #ffffff;
+    font-family: vietnam_font;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.row-productlist-home ol li {
+    width: 24%;
+    margin-right: 1%;
+    float: left;
+}
+
+.img-home-productlist {
+
+
+}
+
+.name-home-productlist {
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    color: #2d2d2d;
+    font-family: vietnam_font;
+    margin-top:10px;
+    text-transform: none;
+}
+
+
+

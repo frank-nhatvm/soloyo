@@ -1,0 +1,41 @@
+<div class="row">
+    <?php if (!$methods = $this->getMethods()) : ?>
+        <p><?php echo $this->helper('checkout')->__('Sorry, no quotes are available for this order at this time.') ?></p>
+    <?php else : ?>
+    <?php foreach ($this->getMethods() as $_method):
+    $_code = $_method->getCode();
+    ?>
+        <div class="col-xs-12  payment_main_<?php echo $_code; ?>">
+            <div class="osc-radioGroup  payment_<?php echo $_code; ?>">
+                <?php if (sizeof($this->getMethods()) > 1): ?>
+
+                    <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio"
+                           name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>"
+                           onclick="payment.switchMethod('<?php echo $_code ?>'); " <?php if ($this->getSelectedMethodCode() == $_code): ?> checked="checked"<?php endif; ?>
+                           class="radio paymethod"/>
+                    <label class="<?php echo $_code . "-zip" ?>"
+                           for="p_method_<?php echo $_code ?>"><?php echo $this->htmlEscape($_method->getTitle()) ?><?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+
+                <?php else: ?>
+                    <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>"
+                                                    type="radio" name="payment[method]" checked="checked"
+                                                    class="radio"/></span>
+                    <i class="material-icons md-24 ">radio_button_checked</i>
+                    <span><?php echo $this->htmlEscape($_method->getTitle()) ?><?php echo $this->getMethodLabelAfterHtml($_method) ?></span>
+                <?php endif; ?>
+
+            </div>
+            <?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+                <div>
+                    <?php echo $html; ?>
+                </div>
+            <?php endif; ?>
+
+
+        </div>
+    <?php endforeach; ?>
+
+
+
+    <?php endif; ?>
+</div>
